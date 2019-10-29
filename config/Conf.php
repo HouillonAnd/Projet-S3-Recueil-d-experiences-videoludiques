@@ -13,7 +13,7 @@ class Conf {
     'login' => 'agussolg',
     // A l'IUT, c'est votre mdp (INE par defaut)
     // Sur votre machine personelle, vous avez creez ce mdp a l'installation
-    'password' => 'AANLLPzq@'
+    'password' => 'AANLLPzq'
   );
   // la variable debug est un boolean
     static private $debug = True; 
