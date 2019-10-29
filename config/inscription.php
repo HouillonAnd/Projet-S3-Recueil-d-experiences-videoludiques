@@ -45,20 +45,20 @@ if(isset($_Post['forminscription'])){
 
 							}
 							else{
-								$error = "Vos mot de passes ne correspondent pas. Veuillez rentrer les même mot de passe."
+								$error = "Vos mot de passes ne correspondent pas. Veuillez rentrer les même mot de passe.";
 							}
 						}
 						else{
-							$error = "L'adresse email est déjà utilisée."
+							$error = "L'adresse email est déjà utilisée.";
 						}
 					}
 					else{
-						$error="L'adresse email n'est pas valide. Veuillez rentrer une adresse email."
+						$error="L'adresse email n'est pas valide. Veuillez rentrer une adresse email.";
 
 					}
 				}
 				else{
-					$error = "Les adresses email ne correspondent pas. Veuillez rentrer la même adresse email"
+					$error = "Les adresses email ne correspondent pas. Veuillez rentrer la même adresse email";
 				}
 			}
 			else {
@@ -66,7 +66,7 @@ if(isset($_Post['forminscription'])){
 			}
 		}
 		else{
-			$error="Le pseudo est déjà utilisé. Veuillez en choisir un autre."
+			$error="Le pseudo est déjà utilisé. Veuillez en choisir un autre.";
 		}
 	}
 	else{
@@ -97,7 +97,7 @@ if(isset($_Post['forminscription'])){
 								<label for="login">Login :  </label>
 							</td>
 							<td align="right">
-								<input type="text" placeholder="Votre login" id="login" name="login"/>
+								<input type="text" placeholder="Votre login" id="login" name="login" required/>
 							</td>
 						</tr>
 						<tr>
@@ -105,7 +105,7 @@ if(isset($_Post['forminscription'])){
 								<label for="email">Email :  </label>
 							</td>
 							<td align="right">
-								<input type="email" placeholder="Votre email" id="email" name="email"/>
+								<input type="email" placeholder="Votre email" id="email" name="email" required/>
 							</td>
 						</tr>
 						<tr>
@@ -113,7 +113,7 @@ if(isset($_Post['forminscription'])){
 								<label for="email2">Confirmation du Email :  </label>
 							</td>
 							<td align="right">
-								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2"/>
+								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2" required/>
 							</td>
 						</tr>
 						<tr>
@@ -121,7 +121,7 @@ if(isset($_Post['forminscription'])){
 								<label for="password">Mot de Passe :  </label>
 							</td>
 							<td align="right">
-								<input type="password" placeholder="Votre Mot de Passe" id="password" name="password"/>
+								<input type="password" placeholder="Votre Mot de Passe" id="password" name="password" required/>
 							</td>
 						</tr>
 						<tr>
@@ -129,14 +129,14 @@ if(isset($_Post['forminscription'])){
 		                    	<label for="password2">Confirmation du mot de passe :</label>
 			                </td>
 			                <td>
-		                     <input type="password" placeholder="Confirmez votre Mot de Passe" id="password2" name="password2" />
+		                     <input type="password" placeholder="Confirmez votre Mot de Passe" id="password2" name="password2" required/>
 		                    </td>
 		                </tr>
 		                <tr>
                   			<td></td>
                   			<td align="center">
                      		<br />
-                     		<input type="submit" name="forminscription" value="Je m'inscris" />
+                     		<input type="submit" name="forminscription" value="Je m'inscris" required/>
                  			</td>
               			</tr>
 					</table>
