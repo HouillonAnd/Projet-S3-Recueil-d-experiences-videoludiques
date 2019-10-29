@@ -40,7 +40,8 @@ if(isset($_Post['forminscription'])){
 								$insertmbr = $pdo->prepare("INSERT INTO _S3_User(login, password, email) VALUES(?, ?, ?)");
 								// execution de la requete préparée.
 	                     		$insertmbr->execute(array($login, $password, $email));
-	                     		echo("Le compte a été crée!");
+	                     		// petit lien qui permet de se connecter suite à la création du compte.
+	                     		echo("Le compte a été crée!  <a href=\"connexion.php\">MeConnecter</a>");
 
 							}
 							else{
