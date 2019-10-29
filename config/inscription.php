@@ -1,10 +1,8 @@
 <?php
-require_once File::build_path(array('config', 'Conf.php'));
+require_once File::build_path(array('model', 'Model.php'));
 
 if(isset($_Post['forminscription'])){
-	if(!empty($_Post['login']) AND !empty($_Post['email']) AND !empty($_Post['email2']) AND !empty($_Post['password']) AND !empty($_Post['password2']))
-	{
-		// htmlspecialchars trie les éléments html pour eviter les injections
+	// htmlspecialchars trie les éléments html pour eviter les injections
 		$login = htmlspecialchars($_POST['login']);
 		$email = htmlspecialchars($_POST['email']);
 		$email2 = htmlspecialchars($_POST['email2']);
@@ -12,39 +10,62 @@ if(isset($_Post['forminscription'])){
 		$password = sha1($_POST['password']);
 		$password2 = sha1($_POST['password2']);
 
-		// stockage de la taille du login dans une variable
-		$taillelogin = strlen($login);
+	// Placer l'initialisation des varaibles avant la vérification permet de toutes les avoirs même si il y a des erreurs on aura quand même des variables nulles qui seront directement signalées par le if en dessous.
+	if(!empty($_Post['login']) AND !empty($_Post['email']) AND !empty($_Post['email2']) AND !empty($_Post['password']) AND !empty($_Post['password2'])){
 
-		//vérifier que le login ne dépasse pas la taille maximum pensée
-		if ($taillelogin <=50){
-			// vérifier que l'email et l'email de confirmation correspondent
-			if($email == $email2){
-				// FILTER_VALIDATE_EMAIL fonction qui valide si le texte rentré dans la case Email est bien un email.
-				// si les deux email correspondent il suffit d'en valider qu'une.
-				if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-						// vérifier que le mot de passe et le mot de passe de confirmation correspondent.
-						if($password==$password2){
-							// requete préparée
-							$insertmbr = $bdd->prepare("INSERT INTO _S3_User(login, password, email) VALUES(?, ?, ?)");
-							// execution de la requete préparée.
-                     		$insertmbr->execute(array($login, $password, $email));
+		$verif_login = $pdo->prepare("SELECT * FROM _S3_User WHERE login = ?");
+		$verif_login->execute(array($login));
+		$login_exist = $verif_login->rowCount();
+		if($login_exist == 0){
+			// stockage de la taille du login dans une variable
+			$taillelogin = strlen($login);
 
+			//vérifier que le login ne dépasse pas la taille maximum pensée
+			if ($taillelogin <=50){
+				// vérifier que l'email et l'email de confirmation correspondent
+
+				if($email == $email2){
+					// FILTER_VALIDATE_EMAIL fonction qui valide si le texte rentré dans la case Email est bien un email.
+					// si les deux email correspondent il suffit d'en valider qu'une.
+					if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+						// On fait une requete préparée qui retourne tout dans la table user qui possede déjà cet email.
+						$verif_mail = $pdo->prepare("SELECT * FROM _S3_User WHERE email=?");
+						$verif_mail->execute(array($email));
+						$mail_exist = $verif_mail->rowCount();
+						// on compte le nombre de fois où l'email apparait dans la table ainsi on vérifie si l'email est déjà utilisé.
+						if($mail_exist ==0){
+							// vérifier que le mot de passe et le mot de passe de confirmation correspondent.
+							if($password==$password2){
+								// requete préparée
+								$insertmbr = $pdo->prepare("INSERT INTO _S3_User(login, password, email) VALUES(?, ?, ?)");
+								// execution de la requete préparée.
+	                     		$insertmbr->execute(array($login, $password, $email));
+	                     		echo("Le compte a été crée!");
+
+							}
+							else{
+								$error = "Vos mot de passes ne correspondent pas. Veuillez rentrer les même mot de passe."
+							}
 						}
 						else{
-							$error = "Vos mot de passes ne correspondent pas. Veuillez rentrer les même mot de passe."
+							$error = "L'adresse email est déjà utilisée."
 						}
 					}
-				else{
-					$error="L'adresse email n'est pas valide. Veuillez rentrer une adresse email."
+					else{
+						$error="L'adresse email n'est pas valide. Veuillez rentrer une adresse email."
 
+					}
+				}
+				else{
+					$error = "Les adresses email ne correspondent pas. Veuillez rentrer la même adresse email"
 				}
 			}
-			else{
-				$error = "Les adresses email ne correspondent pas. Veuillez rentrer la même adresse email"
+			else {
+				$error="Le pseudo ne peut être plus grand que 50 caractères.";
 			}
 		}
-		else {
-			$error="Le pseudo ne peut être plus grand que 50 caractères.";
+		else{
+			$error="Le pseudo est déjà utilisé. Veuillez en choisir un autre."
 		}
 	}
 	else{
@@ -123,6 +144,7 @@ if(isset($_Post['forminscription'])){
 					if(isset($error)){
 						echo($error);
 					}
+					// le méssage d'érreur est initialisé differement selon l'erreur présente dans le formulaire ainsi elle est automatiquement dysplay si elle est initialisée.
 
 				?>
 			</div>
