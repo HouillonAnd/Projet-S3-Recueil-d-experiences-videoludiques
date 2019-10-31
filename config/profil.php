@@ -12,7 +12,7 @@ if(isset($_GET['id']) AND $_GET['id']>0){
 	$info_userRequete->execute(array($getid));
 	$info_user = $info_userRequete->fetch();
 
-}
+
 ?>
 
 
@@ -33,12 +33,15 @@ if(isset($_GET['id']) AND $_GET['id']>0){
 				
 				<?php
 				// quand le profil correspond au profil de connexion on peut afficher les liens vers l'édition de post ou de déconnexion
-				//isset pour éviter que les gens commencent a visiter les profil de autres juste en manipulant l'url comme des petits voyous.
+
 					if(isset($_SESSION['id']) AND  $info_user['id'] == $_SESSION['id']){
 				?>
 					<br>
 					<!--   le lien vers la page de déconnexion est mis en mode yolo mais vas surement devoir remodeler ça-->
 					<a href="deconnexion.php">Se déconnecter</a>
+
+					<!-- lien pour éditer son profil -->
+					<a href="editerProfil.php"> Editer son Profil</a>
 
 					<!--   de plus on veut mettre une vue avec les post et une espace vide ( maybe formulaire ) pour générer un post donc à completer encore -->
 				<?php 
@@ -50,5 +53,5 @@ if(isset($_GET['id']) AND $_GET['id']>0){
 </html>
 
 <?php
-
+}
 ?>
