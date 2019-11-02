@@ -30,11 +30,11 @@
 	       
 	    }
 
-	    public function __construct($i = NULL, $t = NULL, $n = NULL) {
-		    if (!is_null($i) && !is_null($t) && !is_null($n)) {
+	    public function __construct($i = NULL, $t = NULL) {
+		    if (!is_null($i) && !is_null($t)) {
 		        $this->id = $i;
 		        $this->titre = $t;
-		        $this->nbPost = $n;
+		        $this->nbPost = 0;
 		    }
 		} 
 	}
