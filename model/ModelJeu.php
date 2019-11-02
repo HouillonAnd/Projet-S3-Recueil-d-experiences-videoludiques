@@ -11,16 +11,16 @@
 	    public function getId() {
 	        return $this->id;  
 	    }
-	     public function getTitre() {
+	    public function getTitre() {
 	        return $this->titre;  
 	    }
-	     public function getNbPost() {
+	    public function getNbPost() {
 	        return $this->nbPost;  
 	    }
 	       
 	    //setter 
 	    public function setId($id2) {
-	        $this->marque = $marque2;
+	        $this->id = $id2;
 	    } 
 	    public function setTitre($titre2) {
 	        $this->titre =$titre2;
