@@ -1,7 +1,7 @@
 <? php
 	require_once 'Model.php';
 
-	class ModelPost
+	class ModelUser
 	{
 		private $id;
 		private $login;

@@ -1,7 +1,7 @@
 <? php
 	require_once 'Model.php';
 
-	class ModelPost
+	class ModelEmotions
 	{
 		private $id;
 		private $tristesse;
