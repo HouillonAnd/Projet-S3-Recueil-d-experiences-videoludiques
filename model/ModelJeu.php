@@ -50,7 +50,7 @@
 
     }
 
-    public static function getTvById($id) {
+    public static function getJeuById($id) {
       $sql = "SELECT * from _S3_Jeu WHERE id=:nom_tag";
       // Préparation de la requête
       $req_prep = Model::$pdo->prepare($sql);
