@@ -64,18 +64,16 @@
 	        $this->nbUpvote = $nbUpvote;
 	    } 
 
-	    public function __construct($i = NULL, $a = NULL, $d = NULL, $c = NULL, $j = NULL, $t = NULL, $e = NULL) {
-		    if (!is_null($i) && !is_null($a) && !is_null($d) && !is_null($c) && !is_null($j) && !is_null($t) && !is_null($e)) {
-		        $this->id = $i;
-		        $this->auteur_id = $a;
-		        $this->date_publication = $d;
-		        $this->contenu = $c;
-		        $this->jeu_id = $j;
-		        $this->titre = $t;
-		        $this->emotion_id = $e;
-		        $this->nbUpvote = 0;
+	    public function __construct($data = NULL) {
+		    if (!is_null($data) && !empty($data)) {
+          // Si aucun de $m, $c et $i sont nuls,
+          // c'est forcement qu'on les a fournis
+          // donc on retombe sur le constructeur à 3 arguments
+          foreach ($data as $key => $value) {
+            $this->$key = $value;
+          }
 		    }
-		}
+		  }
 
     public static function getAllPost(){
 

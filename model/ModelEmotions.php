@@ -57,29 +57,28 @@
 	        $this->degout = $degout2;
 	    }
 
-	    public function __construct($i = NULL, $t = NULL, $j = NULL, $c = NULL, $p = NULL, $s = NULL, $d = NULL) {
-		    if (!is_null($i) && !is_null($t) && !is_null($j) && !is_null($c) && !is_null($p) && !is_null($s) && !is_null($d)) {
-		        $this->id = $i;
-		        $this->tristesse = $t;
-		        $this->joie = $j;
-		        $this->colere = $c;
-		        $this->peur = $p;
-		        $this->surprise = $s;
-		        $this->degout = $d;
+	    public function __construct($data = NULL) {
+		    if (!is_null($data) && !empty($data)) {
+          // Si aucun de $m, $c et $i sont nuls,
+          // c'est forcement qu'on les a fournis
+          // donc on retombe sur le constructeur à 3 arguments
+          foreach ($data as $key => $value) {
+            $this->$key = $value;
+          }
 		    }
-		}
+		  }
 
-    public static function getAllEmotions(){
+      public static function getAllEmotions(){
 
-      $satement = "SELECT * FROM _S3_Emotions";
-      $rep = Model::$pdo -> query($satement);
-      
-      $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelEmotions');
-      $tab_em = $rep->fetchAll();
+        $satement = "SELECT * FROM _S3_Emotions";
+        $rep = Model::$pdo -> query($satement);
+        
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelEmotions');
+        $tab_em = $rep->fetchAll();
 
-      return $tab_em;
+        return $tab_em;
 
-    }
+      }
 
     public static function getEmotionById($id) {
       $sql = "SELECT * from _S3_Emotions WHERE id=:nom_tag";

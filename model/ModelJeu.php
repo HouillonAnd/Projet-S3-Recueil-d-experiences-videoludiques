@@ -30,13 +30,16 @@
 	       
 	    }
 
-	    public function __construct($i = NULL, $t = NULL) {
-		    if (!is_null($i) && !is_null($t)) {
-		        $this->id = $i;
-		        $this->titre = $t;
-		        $this->nbPost = 0;
+	    public function __construct($data = NULL) {
+		    if (!is_null($data) && !empty($data)) {
+          // Si aucun de $m, $c et $i sont nuls,
+          // c'est forcement qu'on les a fournis
+          // donc on retombe sur le constructeur à 3 arguments
+          foreach ($data as $key => $value) {
+            $this->$key = $value;
+          }
 		    }
-		}
+		  }
 
     public static function getAllJeu(){
 

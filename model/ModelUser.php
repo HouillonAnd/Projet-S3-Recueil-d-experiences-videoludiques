@@ -43,15 +43,16 @@
 	        $this->date_enregistrement = $date_enregistrement2;
 	    }
 
-	    public function __construct($i = NULL, $l = NULL, $p = NULL, $e = NULL, $d = NULL) {
-		    if (!is_null($i) && !is_null($l) && !is_null($p) && !is_null($e) && !is_null($d)) {
-		        $this->id = $i;
-		        $this->login = $l;
-		        $this->password = $p;
-		        $this->email = $e;
-		        $this->date_enregistrement = $d;
+	    public function __construct($data = NULL) {
+		    if (!is_null($data) && !empty($data)) {
+          // Si aucun de $m, $c et $i sont nuls,
+          // c'est forcement qu'on les a fournis
+          // donc on retombe sur le constructeur à 3 arguments
+          foreach ($data as $key => $value) {
+            $this->$key = $value;
+          }
 		    }
-		}
+		  }
 
     public static function getAllUser(){
 
