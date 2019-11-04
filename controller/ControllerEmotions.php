@@ -1,6 +1,5 @@
 <?php
 
-
 require_once File::build_path(array('model', 'ModelEmotions.php'));
 
 class ControllerEmotions {

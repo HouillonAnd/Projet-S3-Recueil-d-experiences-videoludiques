@@ -1,9 +1,9 @@
 <?php
 
-
 require_once File::build_path(array('model', 'ModelJeu.php'));
 
 class ControllerJeu {
+  
     public static function readAll() {
 
         $controller='Jeu';
