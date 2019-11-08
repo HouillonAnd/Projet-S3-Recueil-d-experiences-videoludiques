@@ -8,7 +8,7 @@ class ControllerPost{
         $view = 'list';
         $pagetitle='Liste des postes';
 
-        $tab_post = ModelJeu::getAlPost();
+        $tab_post = ModelPost::getAllPost();
 
         require_once File::build_path(array('view', 'view.php'));
     }
