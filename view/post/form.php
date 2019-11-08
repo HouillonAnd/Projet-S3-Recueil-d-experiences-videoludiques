@@ -1,6 +1,6 @@
-<form method="POST">
+<form method="POST" action="./index.php">
 				<label>Donnez un titre à votre post : </label>
-				<input type ="text" name="post_titre" placeholder="Titre" value="<?=$edit_article[''titre] ?>"/><br/>
+				<input type ="text" name="post_titre" placeholder="Titre" value="<?=$edit_article['titre'] ?>"/><br/>
 
 				<!-- Faudrait faire un menu déroulant qui propose déjà les tittres instanciés dans notre bdd selon ce qui est rentré  par l'utilisateur -->
 				<label>Titre du jeu concerné</label>
