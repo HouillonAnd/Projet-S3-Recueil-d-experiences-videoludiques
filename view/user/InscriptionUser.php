@@ -1,4 +1,4 @@
-<form method="POST"> 
+<form method="POST" action="./index.php"> 
 					<table>
 						<tr>
 							<td align="right">
