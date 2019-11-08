@@ -1,6 +1,5 @@
 <?php
-require_once File::build_path(array('model','ModelPost.php'));
-
+require_once File::build_path(array('model','ModelPost.php'));  
 class ControllerPost{
 
     public static function readAll(){
@@ -8,17 +7,17 @@ class ControllerPost{
         $view = 'list';
         $pagetitle='Liste des postes';
 
-        $tab_post = ModelJeu::getAlPost();
+        $tab_post = ModelPost::getAllPost();
 
         require_once File::build_path(array('view', 'view.php'));
     }
 
     public static function read() {
     	$id = $_GET['id'];
-        $v = ModelPost::getPostById($id);     //appel au modèle pour gerer la BD
-        $controller ='post';
+      $p = ModelPost::getPostById($id);     //appel au modèle pour gerer la BD
+      $controller ='post';
            
-   		if ($v == false) {
+   		if ($p == false) {
         $view='error';
         $pagetitle='Erreur d\'id';
 
