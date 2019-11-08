@@ -9,11 +9,11 @@
 	$nbUpvote=$p -> getnbUpvote();
 
     echo '<p> Post '.htmlspecialchars($id) .' auteur '. htmlspecialchars($auteur_id) .' (date'. htmlspecialchars($date_publication).' )</p>
-    <br>
     titre:'.htmlspecialchars($titre).
     '<br>
     contenu:'.htmlspecialchars($contenu).
     '<br>
     nbUpvote:'.htmlspecialchars($nbUpvote);
+
   
 ?>
