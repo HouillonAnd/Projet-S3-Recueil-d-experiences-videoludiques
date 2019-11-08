@@ -75,6 +75,29 @@
       return $tab_jeu[0];
     }
 
+    public static function getTitreById($id)
+    {
+      $sql = "SELECT titre from _S3_Jeu WHERE id=:nom_tag";
+      // Préparation de la requête
+      $req_prep = Model::$pdo->prepare($sql);
+
+      $values = array(
+          "nom_tag" => $id,
+          //nomdutag => valeur, ...
+      );
+      // On donne les valeurs et on exécute la requête   
+      $req_prep->execute($values);
+
+      // On récupère les résultats comme précédemment
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelJeu');
+      $titre_jeu = $req_prep->fetchAll();
+      // Attention, si il n'y a pas de résultats, on renvoie false
+      if (empty($titre_jeu)){
+          return false;
+        }
+      return $titre_jeu[0];
+    }
+
     public static function deleteById($id)
     {
       try {
