@@ -32,9 +32,19 @@ class ControllerPost{
     }
 
     public static function create() {
-        $controller='post';
-        $view='create';
-        $pagetitle='Création d\'un post';
+        $controller = 'post';
+        $view = 'form';
+        $pagetitle = 'Création d\'un post';
+        $action = 'created';
+        $id = "";
+        $auteur_id = "";
+        $date_publication = "";
+        $contenu = "";
+        $jeu_id = "";
+        $titre = "";
+        $emotion_id = "";
+        $emotion = ModelEmotions::getEmotionById($emotion_id);
+        $nbUpvote = 0;
 
         require_once File::build_path(array('view', 'view.php'));
     }
@@ -43,14 +53,19 @@ class ControllerPost{
         $controller='post';
         $view='created';
         $pagetitle='Post crée !';
-  
+
+        if($_GET["emotion_id"] == "") {
+          $emotion = new ModelEmotions($_GET);
+          $emotion_id = $emotion->getId();
+          $_GET["emotion_id"] = $emotion_id;
+        }
+        echo "je vais bien dans cette action";
         $post = new ModelPost($_GET);
         $post->save();
         self::readAll();    
 
         require_once File::build_path(array('view', 'view.php'));
-  
-        self::readAll();
+        // self::readAll();
     }
 
     public static function error() {
@@ -83,6 +98,17 @@ class ControllerPost{
     public static function update() {
         $id = $_GET['id'];
         $v = ModelPost::getPostById($id); 
+        $action = 'created';
+        $option = 'readonly';
+        $id = $v->getId();
+        $auteur_id = $v->getAuteur_id();
+        $date_publication = $v->getDate_publication();
+        $contenu = $v->getContenu();
+        $jeu_id = $v->getJeu_id();
+        $titre = $v->getTitre();
+        $emotion_id = $v->getEmotion_id();
+        $emotion = ModelEmotions::getEmotionById($emotion_id);
+        $nbUpvote = $v->getnbUpvote();
   
   
         $controller='post';

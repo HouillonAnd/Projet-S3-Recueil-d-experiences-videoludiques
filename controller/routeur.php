@@ -1,5 +1,6 @@
 <?php
-	require_once File::build_path(array("controller","ControllerPost.php"));	
+	require_once File::build_path(array("controller","ControllerPost.php"));
+	require_once File::build_path(array("controller","ControllerEmotions.php"));	
 	
 	// On recupère l'action passée dans l'URL
 
