@@ -36,6 +36,7 @@ class ControllerPost{
         $view = 'form';
         $pagetitle = 'Création d\'un post';
         $action = 'created';
+        $option = 'required';
         $id = "";
         $auteur_id = "";
         $date_publication = "";
@@ -96,7 +97,8 @@ class ControllerPost{
     public static function update() {
         $id = $_GET['id'];
         $v = ModelPost::getPostById($id); 
-        $action = 'created';
+        $action = 'updated';
+        $option = 'readonly';
         $option = 'readonly';
         $id = $v->getId();
         $auteur_id = $v->getAuteur_id();
@@ -110,7 +112,7 @@ class ControllerPost{
   
   
         $controller='post';
-        $view='update';
+        $view='form';
         $pagetitle='Mise à jour du Post';
   
         require_once File::build_path(array('view', 'view.php'));
@@ -131,8 +133,10 @@ class ControllerPost{
           } else {
             $view='updated';
             $pagetitle='Post mis à jour !';
+
+            self::readAll(); 
   
-            require_once File::build_path(array('view', 'view.php'));
+            // require_once File::build_path(array('view', 'view.php'));
           } 
     }
 }

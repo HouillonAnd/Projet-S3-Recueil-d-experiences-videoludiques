@@ -21,7 +21,9 @@
 	    '<div> jeu: '.htmlspecialchars($titre_jeu).'<div>'.htmlspecialchars($contenu).'</div>';
 	    	echo'//place pour les emotions</div>';
 
-		echo'nbUpvote: '.htmlspecialchars($nbUpvote).' auteur '. htmlspecialchars($auteur_id) .'</div>
+		echo'nbUpvote: '.htmlspecialchars($nbUpvote).' auteur '. htmlspecialchars($auteur_id);
+		echo "<br><a href=http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?action=update&id=" . rawurlencode($p->getId()) . '>' . 'MODIFIER' . '</a>'.'</div>
 		<br>';
+		
     }
 ?>
