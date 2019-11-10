@@ -56,16 +56,14 @@ class ControllerPost{
 
         if($_GET["emotion_id"] == "") {
           $emotion = new ModelEmotions($_GET);
-          $emotion_id = $emotion->getId();
+          $emotion->save();
+          $emotion_id = ModelEmotions::getRecentEmotionId();
           $_GET["emotion_id"] = $emotion_id;
         }
-        echo "je vais bien dans cette action";
+
         $post = new ModelPost($_GET);
         $post->save();
         self::readAll();    
-
-        require_once File::build_path(array('view', 'view.php'));
-        // self::readAll();
     }
 
     public static function error() {

@@ -1,6 +1,6 @@
 <form method="get" action="./index.php">
-	<input type="hidden" name="action" value = "<?php echo $action; var_dump($action)?>">
-	<input type="hidden" name="id" value = <?php echo $id ?>> <!--vérifier si quand on passe une chaine de caratère vide à l'id l'auto incrémente ce réalise quand même-->
+	<input type="hidden" name="action" value = "<?php echo $action?>">
+	<?php if($id != "") {echo "<input type=\"hidden\" name=\"id\" value = $id >";} ?>
 	<input type="hidden" name="auteur_id" value = 1> <!--ici il faut récupérer dans le tableau session l'id du créateur du post-->
 	<input type="hidden" name="emotion_id" value = <?php echo $emotion_id?>>
 	<input type="hidden" name="nbUpvote" value = <?php echo $nbUpvote?>>

@@ -102,6 +102,21 @@
       return $tab_em[0];
     }
 
+    //Cette fonction permet de récupérer l'émotion la plus récente dans la base de donner
+    public static function getRecentEmotionId(){
+      $sql = "SELECT MAX(id) as id FROM _S3_Emotions";
+      // Préparation de la requête
+      $req_prep = Model::$pdo->prepare($sql);
+
+      // On exécute la requête   
+      $req_prep->execute();
+
+      //On récupère le résultat
+      $req_prep->setFetchMode(PDO::FETCH_ASSOC);
+      $tab = $req_prep->fetchAll();
+      return $tab[0]['id'];
+    }
+
     public static function deleteById($id)
     {
       try {
