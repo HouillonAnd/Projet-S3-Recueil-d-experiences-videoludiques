@@ -1,3 +1,3 @@
 <?php
-    echo "Votre voiture à bien été crer !!!"
+    echo "Votre post à bien été crée !!!"
 ?>
