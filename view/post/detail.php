@@ -21,10 +21,6 @@
     contenu: '.htmlspecialchars($contenu).
     '<br>';
     	
-	foreach($emotion as $e) {
-    	var_dump($e);
-    }
-	
 	echo'nbUpvote: '.htmlspecialchars($nbUpvote);
 
   
