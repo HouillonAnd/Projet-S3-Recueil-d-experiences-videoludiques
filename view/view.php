@@ -16,8 +16,8 @@
 
 <body>
 
-
- <nav>
+<header>
+  <nav>
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -26,19 +26,13 @@
       </ul>
     </div>
   </nav>
-
-
-
-<?php
-require File::build_path(array("view", $controller, "$view.php"));
-?>
-
-
-
-<!--JavaScript at end of body for optimized loading-->
-<!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+</header>
+ 
+<main>
+  <?php
+  require File::build_path(array("view", $controller, "$view.php"));
+  ?>
+</main>
 
 <footer class="page-footer">
   <div class="container">
@@ -61,9 +55,15 @@ require File::build_path(array("view", $controller, "$view.php"));
   <div class="footer-copyright">
     <div class="container">
     © <?php echo date("Y"); ?> REV
-    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
   </div>
 </footer>
+
+<!--JavaScript at end of body for optimized loading-->
+<!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
 </html>
 
