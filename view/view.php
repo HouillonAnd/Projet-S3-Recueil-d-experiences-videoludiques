@@ -21,7 +21,7 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
+        <li><a href="http://webinfo.iutmontp.univ-montp2.fr/~houillona/REV/index.php">Home</a></li>
         <li><a href="badges.html">Components</a></li>
       </ul>
     </div>

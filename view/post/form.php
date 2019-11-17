@@ -8,28 +8,28 @@
 	<input type="hidden" name="jeu_id" value = 1> <!--à changer (seulement pour le test)-->
 
 	<label>Donnez un titre à votre post : </label>
-	<input type ="text" name="titre" placeholder="Titre" value= <?php echo $titre ?>><br>
+	<input type ="text" name="titre" placeholder="Titre" value= <?php echo $titre." $option"?>><br>
 
 	<!-- Faudrait faire un menu déroulant qui propose déjà les tittres instanciés dans notre bdd selon ce qui est rentré  par l'utilisateur -->
 	<label>Titre du jeu</label>
-	<input type ="text" name="jeu_titre" placeholder="Titre du jeu"<?php echo $option?>><br>
+	<input type ="text" name="jeu_titre"  placeholder="Titre du jeu" value= <?php echo($jeu == false? "":$jeu->getTitre())." $option"?>><br>
 	<label>Que pensez vous de ce Jeu ?: </label>
 	<textarea name="contenu" placeholder="Description" required><?php echo $contenu?></textarea><br>
 
 	<!-- Expression des emotions sous forme d'entrée de valeurs.-->
 	<label>Sur une échelle de 0 à 100 mesurez: </label><br>
 	<label>-la tristesse procurée par le jeu :  </label>
-	<input type="number" name="tristesse" min=0 max=100 value= <?php if($emotion != false){echo $emotion->getTristesse();}else{echo 0;}echo " $option" ?>><br>
+	<input type="number" name="tristesse" min=0 max=100 value= <?php echo($emotion == false?"0":$emotion->getTristesse())?> required><br>
 	<label>-la joie procurée par le jeu :  </label>
-	<input type="number" name="joie" min=0 max=100 value= <?php if($emotion != false){echo $emotion->getJoie();}else{echo 0;}echo  " $option" ?>><br>
+	<input type="number" name="joie" min=0 max=100 value= <?php echo($emotion == false?"0":$emotion->getJoie())?> required><br>
 	<label>-la colère procurée par le jeu :  </label>
-	<input type="number" name="colere" min=0 max=100 value= <?php if($emotion != false){echo $emotion->getColere();}else{echo 0;}echo  " $option" ?>><br>
+	<input type="number" name="colere" min=0 max=100 value= <?php echo($emotion == false?"0":$emotion->getColere())?> required><br>
 	<label>-la peur procurée par le jeu :  </label>
-	<input type="number" name="peur" min=0 max=100 value= <?php if($emotion != false){echo $emotion->getPeur();}else{echo 0;}echo  " $option" ?>><br>
+	<input type="number" name="peur" min=0 max=100 value= <?php echo($emotion == false?"0":$emotion->getPeur())?> required><br>
 	<label>-la surprise procurée par le jeu :  </label>
-	<input type="number" name="surprise" min=0 max=100 value= <?php if($emotion != false){echo $emotion->getSurprise();}else{echo 0;}echo  " $option" ?>><br>
+	<input type="number" name="surprise" min=0 max=100 value= <?php echo($emotion == false?"0":$emotion->getSurprise())?> required><br>
 	<label>-le dégout procurée par le jeu :  </label>
-	<input type="number" name="degout" min=0 max=100  value= <?php if($emotion != false){echo $emotion->getDegout();}else{echo 0;}echo  " $option" ?>><br>
+	<input type="number" name="degout" min=0 max=100  value= <?php echo($emotion == false?"0":$emotion->getDegout())?> required><br>
 
 	<input type ="submit" value="Post"><br>
 </form>

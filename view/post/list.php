@@ -27,3 +27,6 @@
 		
     }
 ?>
+
+<!-- //webinfo.iutmontp.univ-montp2.fr/~houillona/REV -->
+<!-- //localhost/Projet-S3-Recueil-d-experiences-videoludiques -->

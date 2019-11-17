@@ -42,6 +42,7 @@ class ControllerPost{
         $date_publication = "";
         $contenu = "";
         $jeu_id = "";
+        $jeu = ModelJeu::getJeuById($jeu_id);
         $titre = "";
         $emotion_id = "";
         $emotion = ModelEmotions::getEmotionById($emotion_id);
@@ -60,6 +61,7 @@ class ControllerPost{
           $emotion->save();
           $emotion_id = ModelEmotions::getRecentEmotionId();
           $_GET["emotion_id"] = $emotion_id;
+        }else{
         }
 
         $post = new ModelPost($_GET);
@@ -105,6 +107,7 @@ class ControllerPost{
         $date_publication = $v->getDate_publication();
         $contenu = $v->getContenu();
         $jeu_id = $v->getJeu_id();
+        $jeu = ModelJeu::getJeuById($jeu_id);
         $titre = $v->getTitre();
         $emotion_id = $v->getEmotion_id();
         $emotion = ModelEmotions::getEmotionById($emotion_id);
@@ -120,24 +123,19 @@ class ControllerPost{
 
     public static function updated() {
         $id = $_GET['id'];
+        $emotion_id = $_GET['emotion_id'];
         $controller ='jeu';
         $v = ModelPost::getPostById($id);
+        $emotion = ModelEmotions::getEmotionById($emotion_id);
   
           
-          if ($v->update($_GET) == false) {
-            $view='error';
-            $pagetitle='Erreur d\'Id';
-  
-            require_once File::build_path(array('view', 'view.php'));
-  
-          } else {
-            $view='updated';
-            $pagetitle='Post mis à jour !';
-
-            self::readAll(); 
-  
-            // require_once File::build_path(array('view', 'view.php'));
-          } 
+        if ($v->update($_GET) == false & $emotion->update($_GET) == false) {
+          $view='error';
+          $pagetitle='Erreur d\'Id';
+          require_once File::build_path(array('view', 'view.php'));
+        }else {
+          self::readAll(); 
+        } 
     }
 }
 ?>
