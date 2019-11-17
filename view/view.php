@@ -22,7 +22,7 @@
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="http://webinfo.iutmontp.univ-montp2.fr/~houillona/REV/index.php">Home</a></li>
-        <li><a href="badges.html">Components</a></li>
+        <li><a href="http://webinfo.iutmontp.univ-montp2.fr/~houillona/REV/index.php?action=create">Poster</a></li>
       </ul>
     </div>
   </nav>

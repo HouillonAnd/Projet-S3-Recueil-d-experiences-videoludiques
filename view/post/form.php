@@ -8,11 +8,11 @@
 	<input type="hidden" name="jeu_id" value = 1> <!--à changer (seulement pour le test)-->
 
 	<label>Donnez un titre à votre post : </label>
-	<input type ="text" name="titre" placeholder="Titre" value= <?php echo $titre." $option"?>><br>
+	<input type ="text" name="titre" placeholder="Titre" <?php echo "$option=true"." value = $titre"?>><br>
 
 	<!-- Faudrait faire un menu déroulant qui propose déjà les tittres instanciés dans notre bdd selon ce qui est rentré  par l'utilisateur -->
 	<label>Titre du jeu</label>
-	<input type ="text" name="jeu_titre"  placeholder="Titre du jeu" value= <?php echo($jeu == false? "":$jeu->getTitre())." $option"?>><br>
+	<input type ="text" name="jeu_titre"  placeholder="Titre du jeu" <?php echo "$option=true"." value=".($jeu == false? " ":$jeu->getTitre())?>><br>
 	<label>Que pensez vous de ce Jeu ?: </label>
 	<textarea name="contenu" placeholder="Description" required><?php echo $contenu?></textarea><br>
 

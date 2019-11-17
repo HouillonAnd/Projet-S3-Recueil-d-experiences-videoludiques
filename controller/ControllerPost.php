@@ -56,14 +56,13 @@ class ControllerPost{
         $view='created';
         $pagetitle='Post crée !';
 
-        if($_GET["emotion_id"] == "") {
-          $emotion = new ModelEmotions($_GET);
-          $emotion->save();
-          $emotion_id = ModelEmotions::getRecentEmotionId();
-          $_GET["emotion_id"] = $emotion_id;
-        }else{
-        }
-
+        //création de la nouvelle émotion
+        $emotion = new ModelEmotions($_GET);
+        $emotion->save();
+        $emotion_id = ModelEmotions::getRecentEmotionId();
+        $_GET["emotion_id"] = $emotion_id;
+        
+        //création du nouveau post
         $post = new ModelPost($_GET);
         $post->save();
         self::readAll();    
