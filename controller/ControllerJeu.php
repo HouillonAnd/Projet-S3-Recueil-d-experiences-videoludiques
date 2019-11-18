@@ -115,5 +115,12 @@ class ControllerJeu {
           require_once File::build_path(array('view', 'view.php'));
         }
     }
+
+    public static function search(){
+      $tab_title = ModelJeu::search();
+      foreach($tab_title as $key){
+        echo $key->getTitre()."<br>";
+      }
+    }
 }
 ?>

@@ -4,12 +4,8 @@
 <meta charset="UTF-8">
 <title><?php echo $pagetitle; ?></title>
 
-<!--Import Google Icon Font-->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<!--Let browser know website is optimized for mobile-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -21,8 +17,8 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://webinfo.iutmontp.univ-montp2.fr/~houillona/REV/index.php">Home</a></li>
-        <li><a href="http://webinfo.iutmontp.univ-montp2.fr/~houillona/REV/index.php?action=create">Poster</a></li>
+        <li><a href="http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php">Home</a></li>
+        <li><a href="http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?action=create">Poster</a></li>
       </ul>
     </div>
   </nav>
@@ -59,10 +55,31 @@
     </div>
   </div>
 </footer>
-
-<!--JavaScript at end of body for optimized loading-->
-<!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('#gametitle').keyup(function(){
+          $('#search-result').html('');
+          var title = $(this).val();
+          if(title != ""){
+            $.ajax({
+              type: 'GET',
+              url: '../Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search',
+              data: 'title=' + encodeURIComponent(title),
+              success: function(data){
+                if(data != ""){
+                  $('#search-result').append(data);
+                }else{
+                  $('#search-result').append('Aucun utlisateur');
+                }
+              }
+            });
+          }
+        });
+      });
+    </script>
 </body>
 
 </html>

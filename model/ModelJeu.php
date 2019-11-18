@@ -127,6 +127,25 @@
         return false;
       }
     }
+
+    public static function search(){
+      $title = $_GET['title'];
+      $sql = "SELECT * from _S3_Jeu WHERE titre LIKE :nom_tag LIMIT 10";
+      // Préparation de la requête
+      $req_prep = Model::$pdo->prepare($sql);
+
+      $values = array(
+          "nom_tag" => "$title%",
+          //nomdutag => valeur, ...
+      );
+      // On donne les valeurs et on exécute la requête   
+      $req_prep->execute($values);
+
+      // On récupère les résultats comme précédemment
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelJeu');
+      $tab = $req_prep->fetchAll();
+      return $tab;
+    }
 	}
 	
 ?>
