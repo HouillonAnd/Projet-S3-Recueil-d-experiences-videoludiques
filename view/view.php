@@ -70,9 +70,9 @@
               data: 'title=' + encodeURIComponent(title),
               success: function(data){
                 if(data != ""){
-                  $('#search-result').append(data);
+                  $('#search-result').html(data);
                 }else{
-                  $('#search-result').append('Aucun utlisateur');
+                  $('#search-result').html('Aucun utlisateur'); 
                 }
               }
             });
