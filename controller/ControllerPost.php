@@ -61,11 +61,21 @@ class ControllerPost{
         $emotion->save();
         $emotion_id = ModelEmotions::getRecentEmotionId();
         $_GET["emotion_id"] = $emotion_id;
-        
-        //création du nouveau post
-        $post = new ModelPost($_GET);
-        $post->save();
-        self::readAll();    
+
+        //récupération de l'identifiant du jeu
+        $jeu = ModelJeu::getJeuByTitle($_GET['jeu_titre']);
+        if($jeu != false){
+          $jeu_id = $jeu->getID();
+          $_GET['jeu_id'] = $jeu_id;
+          
+          //création du nouveau post
+          $post = new ModelPost($_GET);
+          $post->save();
+          self::readAll();    
+        }else{
+          self::create();
+        }
+       
     }
 
     public static function error() {

@@ -66,7 +66,7 @@
           if(title != ""){
             $.ajax({
               type: 'GET',
-              url: '../REV/index.php?controller=jeu&action=search',
+              url: '../Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search',
               data: 'title=' + encodeURIComponent(title),
               success: function(data){
                 if(data != ""){
