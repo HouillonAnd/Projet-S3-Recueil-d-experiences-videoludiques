@@ -116,7 +116,7 @@
       $values = array(
         "id" => $this->id,
         "login" => $this->login,
-        "password" => $this->password,
+        "password" => Security::chiffrer($this->password),
         "email" => $this->email,
         "date_enregistrement" => $this->date_enregistrement
       );    

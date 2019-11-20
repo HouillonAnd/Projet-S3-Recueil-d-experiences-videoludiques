@@ -1,4 +1,6 @@
 <form method="POST" action="./index.php"> 
+<input type="hidden" name="action" value="created">
+<input type="hidden" name="controller" value="user">
 					<table>
 						<tr>
 							<td align="right">
