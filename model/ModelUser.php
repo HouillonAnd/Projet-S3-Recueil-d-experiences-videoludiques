@@ -1,5 +1,6 @@
 <?php
   require_once File::build_path(array('model','Model.php'));
+  require_once File::build_path(array('lib','Security.php'));
   
 	class ModelUser
 	{
@@ -110,15 +111,13 @@
 
     public function save() {
     
-      $statement ="INSERT INTO _S3_User(id, login,password, email,date_enregistrement) VALUES(:id, :login, :password, :email,:date_enregistrement)";
+      $statement ="INSERT INTO _S3_User(login, password, email) VALUES(:login, :password, :email)";
       $req_prep = Model::$pdo->prepare($statement);
 
       $values = array(
-        "id" => $this->id,
         "login" => $this->login,
         "password" => Security::chiffrer($this->password),
         "email" => $this->email,
-        "date_enregistrement" => $this->date_enregistrement
       );    
 
       $req_prep->execute($values); 

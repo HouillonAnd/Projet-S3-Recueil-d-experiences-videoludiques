@@ -118,9 +118,7 @@ class ControllerJeu {
 
     public static function search(){
       $tab_title = ModelJeu::search();
-      foreach($tab_title as $key){
-        echo $key->getTitre()."<br>";
-      }
+      echo json_encode($tab_title);
     }
 }
 ?>

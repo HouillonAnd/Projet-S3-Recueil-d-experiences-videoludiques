@@ -42,20 +42,15 @@ class ControllerUser {
     }
 
     public static function created() {
-      $controller='user';
-      $view='created';
-      $pagetitle='User crée !';
 
       if($_GET["password"] == $_GET["password2"]) {
         $user = new ModelUser($_GET);
         $user->save();
-        require_once File::build_path(array('view', 'view.php'));
+        ModelPost::getAllPost();
+        // require_once File::build_path(array('view', 'view.php'));
       }else{
         self::create();
       }
-    	
-
-      
     }
 
     public static function error() {
