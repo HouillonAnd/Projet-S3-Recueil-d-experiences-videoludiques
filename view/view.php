@@ -19,6 +19,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php">Home</a></li>
         <li><a href="http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?action=create">Poster</a></li>
+        <li><a href="http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=user&action=create">Inscription</a></li>
       </ul>
     </div>
   </nav>

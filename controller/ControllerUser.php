@@ -46,8 +46,7 @@ class ControllerUser {
       if($_GET["password"] == $_GET["password2"]) {
         $user = new ModelUser($_GET);
         $user->save();
-        ModelPost::getAllPost();
-        // require_once File::build_path(array('view', 'view.php'));
+        ControllerPost::readAll();//on redirifera plus tard l'utlisateur sur sa page perso
       }else{
         self::create();
       }
