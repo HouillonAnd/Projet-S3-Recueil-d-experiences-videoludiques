@@ -89,6 +89,28 @@
       return $tab_us[0];
     }
 
+    public static function getUserByLogin($login) {
+      $sql = "SELECT * from _S3_User WHERE login=:login";
+      // Préparation de la requête
+      $req_prep = Model::$pdo->prepare($sql);
+
+      $values = array(
+          "login" => $login,
+          //nomdutag => valeur, ...
+      );
+      // On donne les valeurs et on exécute la requête   
+      $req_prep->execute($values);
+
+      // On récupère les résultats comme précédemment
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+      $tab_us = $req_prep->fetchAll();
+      // Attention, si il n'y a pas de résultats, on renvoie false
+      if (empty($tab_us)){
+          return false;
+        }
+      return $tab_us[0];
+    }
+
     public static function deleteById($id)
     {
       try {
@@ -128,11 +150,11 @@
         $sql = "UPDATE _S3_User SET login=:login , password=:password , email=:email , date_enregistrement=:date_enregistrement WHERE id=:id";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
-             "id" =>$this->id,
-             "login" => $data['login'],
-             "password" => $data['password'],
-             "email" => $data['email'],
-             "date_enregistrement" => $data['date_enregistrement']
+            "id" =>$this->id,
+            "login" => $data['login'],
+            "password" => $data['password'],
+            "email" => $data['email'],
+            "date_enregistrement" => $data['date_enregistrement']
             //nomdutag => valeur, ...
         );
         // On donne les valeurs et on exécute la requête   
@@ -141,6 +163,27 @@
         return true;  
       }catch (PDOException $e) {
         return false;
+      }
+    }
+    
+    public static function checkPassword($login,$mot_de_passe_chiffre){
+      $sql = "SELECT * FROM _S3_User WHERE login =:login AND password =:password";
+      $req_prep = Model::$pdo->prepare($sql);
+      $values = array(
+      "login" =>$login,
+      "password" => $mot_de_passe_chiffre,
+      //nomdutag => valeur, ...
+      );
+      // On donne les valeurs et on exécute la requête   
+      $req_prep->execute($values);
+
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
+      $tab = $req_prep->fetchAll();
+
+      if(empty($tab)){
+        return false;
+      }else{
+        return true;
       }
     } 
 	}

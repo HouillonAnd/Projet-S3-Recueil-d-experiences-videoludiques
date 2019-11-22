@@ -1,8 +1,9 @@
 <form method="get" action="./index.php">
+	<?php echo $_SESSION["login"]?>
 	<input type="hidden" name="action" value = "<?php echo $action?>">
 	<?php if($id != ""){echo "<input type=\"hidden\" name=\"id\" value = $id >";} 
 	if($date_publication != ""){echo "<input type=\"hidden\" name=\"date_publication\" value = $date_publication >";} ?>
-	<input type="hidden" name="auteur_id" value = 1> <!--ici il faut récupérer dans le tableau session l'id du créateur du post-->
+	<input type="hidden" name="auteur_id" value = <?php echo $auteur_id?>> <!--ici il faut récupérer dans le tableau session l'id du créateur du post-->
 	<input type="hidden" name="emotion_id" value = <?php echo $emotion_id?>>
 	<input type="hidden" name="nbUpvote" value = <?php echo $nbUpvote?>>
 	<input type="hidden" name="jeu_id" value = 1> <!--à changer (seulement pour le test)-->

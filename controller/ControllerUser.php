@@ -84,7 +84,7 @@ class ControllerUser {
       $v = ModelUser::getUserById($id); 
 
 
-      $controller='User';
+      $controller='user';
       $view='update';
       $pagetitle='Mise à jour des User';
 
@@ -108,5 +108,32 @@ class ControllerUser {
 
           require_once File::build_path(array('view', 'view.php'));
         }
+    }
+
+    public static function connect(){
+      $controller='user';
+      $view='connect';
+      $pagetitle='Connexion';
+
+      require_once File::build_path(array('view', 'view.php'));
+    }
+
+    public static function connected(){
+      $password = $_GET["password"];
+      $login = $_GET["login"];
+
+      if(ModelUser::checkPassword($login,Security::chiffrer($password))){
+        $_SESSION['login'] = $login;
+        ControllerPost::readAll();
+      }else{
+        self::connect();
+      }
+    }
+
+    public static function deconnect(){
+      session_unset();     // unset $_SESSION variable for the run-time
+      session_destroy();   // destroy session data in storage
+      setcookie(session_name(),'',time()-1); // deletes the session cookie containing the session ID
+      ControllerPost::readAll();
     }
 }

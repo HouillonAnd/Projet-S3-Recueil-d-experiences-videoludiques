@@ -38,7 +38,8 @@ class ControllerPost{
         $action = 'created';
         $option = 'required';
         $id = "";
-        $auteur_id = "";
+        $auteur = ModelUser::getUserByLogin($_SESSION["login"]);
+        $auteur_id = $auteur->getId();
         $date_publication = "";
         $contenu = "";
         $jeu_id = "";

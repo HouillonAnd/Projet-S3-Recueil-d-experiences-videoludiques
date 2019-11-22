@@ -7,7 +7,7 @@
 								<label for="login">Login :  </label>
 							</td>
 							<td align="right">
-								<input type="text" placeholder="Votre login" id="login" name="login"/>
+								<input type="text" placeholder="Votre login" id="login" name="login" required>
 							</td>
 						</tr>
 						<tr>
@@ -15,7 +15,7 @@
 								<label for="email">Email :  </label>
 							</td>
 							<td align="right">
-								<input type="email" placeholder="Votre email" id="email" name="email"/>
+								<input type="email" placeholder="Votre email" id="email" name="email" required>
 							</td>
 						</tr>
 						<tr>
@@ -23,7 +23,7 @@
 								<label for="email2">Confirmation du Email :  </label>
 							</td>
 							<td align="right">
-								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2"/>
+								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2" required>
 							</td>
 						</tr>
 						<tr>
@@ -31,7 +31,7 @@
 								<label for="password">Mot de Passe :  </label>
 							</td>
 							<td align="right">
-								<input type="password" placeholder="Votre Mot de Passe" id="password" name="password"/>
+								<input type="password" placeholder="Votre Mot de Passe" id="password" name="password"required>
 							</td>
 						</tr>
 						<tr>
@@ -39,7 +39,7 @@
 		                    	<label for="password2">Confirmation du mot de passe :</label>
 			                </td>
 			                <td>
-		                     <input type="password" placeholder="Confirmez votre Mot de Passe" id="password2" name="password2" />
+		                     <input type="password" placeholder="Confirmez votre Mot de Passe" id="password2" name="password2" required>
 		                    </td>
 		                </tr>
 		                <tr>
