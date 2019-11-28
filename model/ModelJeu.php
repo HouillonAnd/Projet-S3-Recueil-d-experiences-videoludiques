@@ -167,7 +167,7 @@
       $req_prep->setFetchMode(PDO::FETCH_OBJ);
       $tab = $req_prep->fetchAll();
       if(empty($tab)){
-        return "pas de Jeux";
+        return false;
       }else{
         return $tab;
       }

@@ -15,9 +15,7 @@
 	<label>Titre du jeu</label>
 	<input type ="text" name="jeu_titre"  id="gametitle" placeholder="Titre du jeu" autocomplete="off" <?php echo "$option=true"." value=".($jeu == false? " ":$jeu->getTitre())?>><br>
 
-	<div>
-		<div id="search-result">
-		</div>
+	<div id="search-result">
 	</div>
 	
 	<label>Que pensez vous de ce Jeu ?: </label>

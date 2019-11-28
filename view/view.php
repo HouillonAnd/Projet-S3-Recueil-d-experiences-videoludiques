@@ -64,19 +64,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
       var searchBar = document.getElementById("gametitle");
-      searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
+      if(searchBar.value != " "){
+        searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
+      }
 
       function gameSearch(title) {
         var httpRequest = new XMLHttpRequest();
         httpRequest.open("GET", "http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search&title="+title, true);
-
-        // httpRequest.onreadystatechange = function(){
-        //   if(httpRequest.readyState === 4 && httpRequest.status === 200){
-        //     console.log(httpRequest.responseText);
-        //     gameResponse(httpRequest);
-        //   };
-        // };
-
         httpRequest.addEventListener("load", function() {
           gameResponse(httpRequest);
         });
@@ -90,7 +84,12 @@
 
       function showgame(gameTab){
         var auto_box = document.getElementById("search-result");
-        gameTab.forEach(element => auto_box.innerHTML(element.titre));
+        auto_box.innerHTML=" ";
+        if(gameTab == false){
+          auto_box.innerHTML="Aucun jeux";
+        }else{
+          gameTab.forEach((element) => auto_box.innerHTML=auto_box.innerHTML+"<p>"+element.titre+"</p>");
+        }
       }
     </script>
 </body>
