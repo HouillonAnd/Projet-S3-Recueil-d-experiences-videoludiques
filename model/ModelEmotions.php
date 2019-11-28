@@ -102,7 +102,7 @@
       return $tab_em[0];
     }
 
-    //Cette fonction permet de récupérer l'émotion la plus récente dans la base de donner
+    //Cette fonction permet de récupérer l'émotion la plus récente dans la base de donner peut être remplacer par lastinsertid)
     public static function getRecentEmotionId(){
       $sql = "SELECT MAX(id) as id FROM _S3_Emotions";
       // Préparation de la requête

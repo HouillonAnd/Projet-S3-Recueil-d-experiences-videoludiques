@@ -13,11 +13,10 @@
 
 	<!-- Faudrait faire un menu déroulant qui propose déjà les tittres instanciés dans notre bdd selon ce qui est rentré  par l'utilisateur -->
 	<label>Titre du jeu</label>
-	<input type ="text" name="jeu_titre"  id="gametitle" placeholder="Titre du jeu" <?php echo "$option=true"." value=".($jeu == false? " ":$jeu->getTitre())?>><br>
+	<input type ="text" name="jeu_titre"  id="gametitle" placeholder="Titre du jeu" autocomplete="off" <?php echo "$option=true"." value=".($jeu == false? " ":$jeu->getTitre())?>><br>
 
 	<div>
 		<div id="search-result">
-
 		</div>
 	</div>
 	

@@ -63,27 +63,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-      $(document).ready(function(){
-        $('#gametitle').keyup(function(){
-          $('#search-result').html('');
-          var title = $(this).val();
-          if(title != ""){
-            $.ajax({
-              type: 'GET',
-              url: '../Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search',
-              data: 'title=' + encodeURIComponent(title),
-              success: function(data){
-                //JSON.parse
-                if(data != ""){
-                  $('#search-result').html(data);
-                }else{
-                  $('#search-result').html('Aucun utlisateur'); 
-                }
-              }
-            });
-          }
+      var searchBar = document.getElementById("gametitle");
+      searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
+
+      function gameSearch(title) {
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open("GET", "http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search&title="+title, true);
+
+        // httpRequest.onreadystatechange = function(){
+        //   if(httpRequest.readyState === 4 && httpRequest.status === 200){
+        //     console.log(httpRequest.responseText);
+        //     gameResponse(httpRequest);
+        //   };
+        // };
+
+        httpRequest.addEventListener("load", function() {
+          gameResponse(httpRequest);
         });
-      });
+        httpRequest.send(null);
+      }
+
+      function gameResponse(httpRequest){
+        var tab = JSON.parse(httpRequest.responseText);
+        showgame(tab);
+      }
+
+      function showgame(gameTab){
+        var auto_box = document.getElementById("search-result");
+        gameTab.forEach(element => auto_box.innerHTML(element.titre));
+      }
     </script>
 </body>
 

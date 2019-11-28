@@ -151,9 +151,8 @@
       }
     }
 
-    public static function search(){
-      $title = $_GET['title'];
-      $sql = "SELECT * from _S3_Jeu WHERE titre LIKE :nom_tag LIMIT 10";
+    public static function search($title){
+      $sql = "SELECT titre from _S3_Jeu WHERE titre LIKE :nom_tag LIMIT 10";
       // Préparation de la requête
       $req_prep = Model::$pdo->prepare($sql);
 
@@ -165,9 +164,13 @@
       $req_prep->execute($values);
 
       // On récupère les résultats comme précédemment
-      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelJeu');
+      $req_prep->setFetchMode(PDO::FETCH_OBJ);
       $tab = $req_prep->fetchAll();
-      return $tab;
+      if(empty($tab)){
+        return "pas de Jeux";
+      }else{
+        return $tab;
+      }
     }
 	}
 	

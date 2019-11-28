@@ -117,8 +117,7 @@ class ControllerJeu {
     }
 
     public static function search(){
-      $tab_title = ModelJeu::search();
-      echo json_encode($tab_title);
+      $tab_title = ModelJeu::search($_GET["title"]);
+      echo  json_encode($tab_title);
     }
 }
-?>
