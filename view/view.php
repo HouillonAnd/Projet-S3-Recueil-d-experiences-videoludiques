@@ -62,36 +62,10 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-      var searchBar = document.getElementById("gametitle");
-      if(searchBar.value != " "){
-        searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
-      }
 
-      function gameSearch(title) {
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.open("GET", "http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search&title="+title, true);
-        httpRequest.addEventListener("load", function() {
-          gameResponse(httpRequest);
-        });
-        httpRequest.send(null);
-      }
-
-      function gameResponse(httpRequest){
-        var tab = JSON.parse(httpRequest.responseText);
-        showgame(tab);
-      }
-
-      function showgame(gameTab){
-        var auto_box = document.getElementById("search-result");
-        auto_box.innerHTML=" ";
-        if(gameTab == false){
-          auto_box.innerHTML="Aucun jeux";
-        }else{
-          gameTab.forEach((element) => auto_box.innerHTML=auto_box.innerHTML+"<p>"+element.titre+"</p>");
-        }
-      }
-    </script>
+    <!-- revoir pourquoi le builtpath ne fonctionne pas  -->
+    <!-- <script src="<?php echo File::build_path(array('view','autocomplet.js'))?>"></script> -->
+    <script src="view/autocomplet.js"></script>
 </body>
 
 </html>
