@@ -1,6 +1,7 @@
 <?php
 
 require_once File::build_path(array('model', 'ModelUser.php'));
+require_once File::build_path(array('lib', 'Session.php'));
 
 class ControllerUser {
 	public static function readAll(){
@@ -15,8 +16,8 @@ class ControllerUser {
 
 
 	public static function read() {
-    	$id = $_GET['id'];
-      $v = ModelUser::getUserById($id);     //appel au modèle pour gerer la BD
+    	$login = $_SESSION['login'];
+      $v = ModelUser::getUserByLogin($login);     //appel au modèle pour gerer la BD
       $controller='user';
 
    		if ($v == false) {
@@ -27,7 +28,7 @@ class ControllerUser {
 
    		} else {
           $view='detail';
-          $pagetitle='Détails de l\'User';
+          $pagetitle='Profile utilisateur';
 
           require_once File::build_path(array('view', 'view.php'));
 	 	}
@@ -85,8 +86,12 @@ class ControllerUser {
 
 
       $controller='user';
-      $view='update';
+      $view='generalUpdate';
       $pagetitle='Mise à jour des User';
+
+      $login = $v->getLogin();
+      $email = $v->getEmail();
+      $password = $v->getPassword();
 
       require_once File::build_path(array('view', 'view.php'));
     }
@@ -94,20 +99,57 @@ class ControllerUser {
     public static function updated() {
       $id = $_GET['id'];
       $controller='user';
-      $v=ModelUser::getUserById($id);
+      $v = ModelUser::getUserById($id);
+      $login = $v->getLogin();
 
+      if(Session::is_user($login)){
         if ($v->update($_GET) == false) {
+          $_SESSION['login'] = $_GET['login'];
           $view='error';
           $pagetitle='Erreur d\'Id';
+
+          echo $_SESSION['login'];
 
           require_once File::build_path(array('view', 'view.php'));
 
         } else {
-          $view='updated';
+          $view='detail';
           $pagetitle='User Mis à jour !';
 
           require_once File::build_path(array('view', 'view.php'));
         }
+      }
+    }
+
+    public static function updatePassword() {
+      $id = $_GET['id']; 
+      $login = $_GET['login'];
+
+      $controller='user';
+      $view='passwordUpdate';
+      $pagetitle='change password';
+
+      require_once File::build_path(array('view', 'view.php'));
+    }
+
+    public static function updatedPassword() {
+      $v = ModelUser::getUserById($_GET['id']);  
+      $login = $v->getLogin();
+
+      $controller='user';
+      $pagetitle='change passwored';
+
+      if(Session::is_user($login)){
+        if(ModelUser::checkPassword($login, Security::chiffrer($_GET["oldpassword"]))){
+          if($_GET['password'] == $_GET['password2']){
+            $v->updatepassword($_GET);
+            $view='detail';
+            require_once File::build_path(array('view', 'view.php'));
+          }
+          ControllerUser::updatePassword();
+        }
+        ControllerUser::updatePassword();
+      }
     }
 
     public static function connect(){

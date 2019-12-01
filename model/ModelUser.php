@@ -147,14 +147,30 @@
 
     public function update($data) {
       try {
-        $sql = "UPDATE _S3_User SET login=:login , password=:password , email=:email , date_enregistrement=:date_enregistrement WHERE id=:id";
+        $sql = "UPDATE _S3_User SET login=:login , email=:email WHERE id=:id";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
             "id" =>$this->id,
             "login" => $data['login'],
-            "password" => $data['password'],
             "email" => $data['email'],
-            "date_enregistrement" => $data['date_enregistrement']
+            //nomdutag => valeur, ...
+        );
+        // On donne les valeurs et on exécute la requête   
+        $req_prep->execute($values);
+
+        return true;  
+      }catch (PDOException $e) {
+        return false;
+      }
+    }
+
+    public function updatepassword($data) {
+      try {
+        $sql = "UPDATE _S3_User SET password=:password WHERE id=:id";
+        $req_prep = Model::$pdo->prepare($sql);
+        $values = array(
+            "id" => $this->id,
+            "password" => Security::chiffrer($data['password']),
             //nomdutag => valeur, ...
         );
         // On donne les valeurs et on exécute la requête   
