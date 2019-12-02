@@ -104,15 +104,14 @@ class ControllerUser {
 
       if(Session::is_user($login)){
         if ($v->update($_GET) == false) {
-          $_SESSION['login'] = $_GET['login'];
           $view='error';
           $pagetitle='Erreur d\'Id';
-
-          echo $_SESSION['login'];
 
           require_once File::build_path(array('view', 'view.php'));
 
         } else {
+          $_SESSION['login'] = $_GET['login'];
+          $v = ModelUser::getUserById($id);
           $view='detail';
           $pagetitle='User Mis à jour !';
 
