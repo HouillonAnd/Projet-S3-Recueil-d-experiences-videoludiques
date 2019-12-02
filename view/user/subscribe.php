@@ -7,7 +7,7 @@
 								<label for="login">Login :  </label>
 							</td>
 							<td align="right">
-								<input type="text" placeholder="Votre login" id="login" name="login" required>
+								<input type="text" placeholder="Votre login" id="login" name="login" value="<?php echo $login?>" required>
 							</td>
 						</tr>
 						<tr>
@@ -15,7 +15,7 @@
 								<label for="email">Email :  </label>
 							</td>
 							<td align="right">
-								<input type="email" placeholder="Votre email" id="email" name="email" required>
+								<input type="email" placeholder="Votre email" id="email" name="email" value="<?php echo $email?>" required>
 							</td>
 						</tr>
 						<tr>
@@ -23,7 +23,7 @@
 								<label for="email2">Confirmation du Email :  </label>
 							</td>
 							<td align="right">
-								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2" required>
+								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2" value="<?php echo $email2?>" required>
 							</td>
 						</tr>
 						<tr>

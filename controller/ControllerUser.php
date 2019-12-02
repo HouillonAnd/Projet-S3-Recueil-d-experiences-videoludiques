@@ -39,6 +39,17 @@ class ControllerUser {
         $view='subscribe';
         $pagetitle='Création de User ';
 
+        // premet de garder en mémoire les infos si l'utilisateur se trompe dans le mot de passe
+        if(isset($_GET["login"])) {
+          $login = $_GET["login"];
+          $email = $_GET["email"];
+          $email2 = $_GET["email2"];
+      }else{
+          $login = "";
+          $email = "";
+          $email2 = "";  
+      }
+
         require_once File::build_path(array('view', 'view.php'));
     }
 
@@ -155,6 +166,12 @@ class ControllerUser {
       $controller='user';
       $view='connect';
       $pagetitle='Connexion';
+
+      if(isset($_GET["login"])) {
+        $login = $_GET["login"];
+    }else{
+        $login = ""; 
+    }
 
       require_once File::build_path(array('view', 'view.php'));
     }
