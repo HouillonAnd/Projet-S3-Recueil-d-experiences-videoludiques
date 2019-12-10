@@ -19,42 +19,43 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Menu</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-
-    
     <span class="navbar-toggler-icon"></span>
   </button>
+
+
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <a href="index.php">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Menu <span class="sr-only">(current)</span></a>
       </li>
       <?php 
 
       if(isset($_SESSION["login"])) {
         echo(
-            "<li class=\"nav-item active\">
+            "<li class=\"nav-item\">
               <a class=\"nav-link\" href=\"index.php?controller=user&action=read\">Profil</a>
             </li>".
-            "<li class=\"nav-item active\">
+            "<li class=\"nav-item\">
               <a class=\"nav-link\" href=\"index.php?action=create\">Poster</a>
             </li>".
-            "<li class=\"nav-item active\">
-              <a class=\"nav-link\" href=\"index.php?controller=user&action=deconnect\">Logout</a>
+            "<li class=\"nav-item\">
+              <a class=\"nav-link disabled\" href=\"index.php?controller=user&action=deconnect\" tabindex=\"-1\" aria-disabled=\"true\">Logout</a>
             </li>");
 
             }
             else{
               echo(
-            "<li class=\"nav-item active\">
+            "<li class=\"nav-item\">
               <a class=\"nav-link\" href=\"index.php?controller=user&action=create\">Inscription</a>
             </li>".
-            "<li class=\"nav-item active\">
-              <a class=\"nav-link\" href=\"index.php?controller=user&action=connect\">Login</a>
+            "<li class=\"nav-item\">
+              <a class=\"nav-link disabled\" href=\"index.php?controller=user&action=connect\" tabindex=\"-1\" aria-disabled=\"true\">Login</a>
             </li>"
           );
           }  ?>
     </ul>
   </div>
+</nav>
 
 </header>
  
