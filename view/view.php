@@ -17,13 +17,13 @@
     <div class="nav-wrapper">
       <a href="#" class="brand-logo">Logo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php">Home</a></li>
+        <li><a href="index.php">Home</a></li>
         <?php echo(isset($_SESSION["login"])?
-        "<li><a href=\"http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=user&action=read\">Profil</a></li>".
-        "<li><a href=\"http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?action=create\">Poster</a></li>".
-        "<li><a href=\"http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=user&action=deconnect\">Logout</a></li>":
-        "<li><a href=\"http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=user&action=create\">Inscription</a></li>".
-        "<li><a href=\"http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=user&action=connect\">Login</a></li>")?>
+        "<li><a href=\"index.php?controller=user&action=read\">Profil</a></li>".
+        "<li><a href=\"index.php?action=create\">Poster</a></li>".
+        "<li><a href=\"index.php?controller=user&action=deconnect\">Logout</a></li>":
+        "<li><a href=\"index.php?controller=user&action=create\">Inscription</a></li>".
+        "<li><a href=\"index.php?controller=user&action=connect\">Login</a></li>")?>
       </ul>
     </div>
   </nav>

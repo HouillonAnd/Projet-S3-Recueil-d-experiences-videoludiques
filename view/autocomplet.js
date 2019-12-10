@@ -4,7 +4,7 @@ searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
 
 function gameSearch(title) {
   var httpRequest = new XMLHttpRequest();
-  httpRequest.open("GET", "http://localhost/Projet-S3-Recueil-d-experiences-videoludiques/index.php?controller=jeu&action=search&title="+title, true);
+  httpRequest.open("GET", "index.php?controller=jeu&action=search&title="+title, true);
   httpRequest.addEventListener("load", function() {
     if(title != ""){
       gameResponse(httpRequest);
