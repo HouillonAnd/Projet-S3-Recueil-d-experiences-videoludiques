@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <title><?php echo $pagetitle; ?></title>
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 </head>
@@ -13,20 +16,46 @@
 <body>
 
 <header>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="index.php">Home</a></li>
-        <?php echo(isset($_SESSION["login"])?
-        "<li><a href=\"index.php?controller=user&action=read\">Profil</a></li>".
-        "<li><a href=\"index.php?action=create\">Poster</a></li>".
-        "<li><a href=\"index.php?controller=user&action=deconnect\">Logout</a></li>":
-        "<li><a href=\"index.php?controller=user&action=create\">Inscription</a></li>".
-        "<li><a href=\"index.php?controller=user&action=connect\">Login</a></li>")?>
-      </ul>
-    </div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Menu</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+    
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a href="index.php">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <?php 
+
+      if(isset($_SESSION["login"])) {
+        echo(
+            "<li class=\"nav-item active\">
+              <a class=\"nav-link\" href=\"index.php?controller=user&action=read\">Profil</a>
+            </li>".
+            "<li class=\"nav-item active\">
+              <a class=\"nav-link\" href=\"index.php?action=create\">Poster</a>
+            </li>".
+            "<li class=\"nav-item active\">
+              <a class=\"nav-link\" href=\"index.php?controller=user&action=deconnect\">Logout</a>
+            </li>");
+
+            }
+            else{
+              echo(
+            "<li class=\"nav-item active\">
+              <a class=\"nav-link\" href=\"index.php?controller=user&action=create\">Inscription</a>
+            </li>".
+            "<li class=\"nav-item active\">
+              <a class=\"nav-link\" href=\"index.php?controller=user&action=connect\">Login</a>
+            </li>"
+          );
+          }  ?>
+    </ul>
+  </div>
+
 </header>
  
 <main>
