@@ -7,9 +7,9 @@
 
 <label for="oldpassword">mot de passe actuelle :</label>
 <input type="password" id="oldpassword" name="oldpassword" required>
-<label for="password">Email :</label>
+<label for="password">Password :</label>
 <input type="password" id="password" name="password" required>
-<label for="password2">Email :</label>
+<label for="password2">Confirm password :</label>
 <input type="password" id="password2" name="password2" required>
 
 <input type="submit" name="updatePassword" value="change">

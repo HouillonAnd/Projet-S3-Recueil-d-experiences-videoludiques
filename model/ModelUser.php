@@ -8,7 +8,8 @@
 		private $login;
 		private $password;
 		private $email;
-		private $date_enregistrement;
+    private $date_enregistrement;
+    private $admin;
 
 	    //getter      
 	    public function getId() {
@@ -25,7 +26,10 @@
 	    }
 	    public function getDate_enregistrement() {
 	        return $this->date_enregistrement;  
-	    }
+      }
+      public function getAdmin() {
+        return $this->admin;  
+      }
 	       
 	    //setter 
 	    public function setId($id2) {
@@ -147,7 +151,7 @@
 
     public function update($data) {
       try {
-        $sql = "UPDATE _S3_User SET login=:login , email=:email WHERE id=:id";
+        $sql = "UPDATE _S3_User SET login=:login , email=:email, admin=:admin WHERE id=:id";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
             "id" =>$this->id,
@@ -155,6 +159,10 @@
             "email" => $data['email'],
             //nomdutag => valeur, ...
         );
+        //si l'utilisateur est admin on met à jour la valeur de admin dans la table
+        if(Session::is_admin()){
+          $values['admin'] = $data['admin']; 
+        }
         // On donne les valeurs et on exécute la requête   
         $req_prep->execute($values);
 

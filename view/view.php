@@ -30,9 +30,11 @@
 </header>
  
 <main>
-  <?php
-  require File::build_path(array("view", $controller, "$view.php"));
-  ?>
+  <div class="container">
+    <?php
+    require File::build_path(array("view", $controller, "$view.php"));
+    ?>
+  </div>
 </main>
 
 <footer class="page-footer">
