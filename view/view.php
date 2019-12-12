@@ -16,46 +16,55 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="index.php?controller=post&action=readAll">Menu</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php?controller=post&action=readAll">Menu</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php?controller=post&action=readAll">Menu <span class="sr-only">(current)</span></a>
-      </li>
-      <?php 
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php?controller=post&action=readAll">Menu <span class="sr-only">(current)</span></a>
+        </li>
+        <?php 
 
-      if(isset($_SESSION["login"])) {
-        echo(
-            "<li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"index.php?controller=user&action=read\">Profil</a>
-            </li>".
-            "<li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"index.php?action=create\">Poster</a>
-            </li>".
-            "<li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"index.php?controller=user&action=deconnect\" tabindex=\"-1\" aria-disabled=\"true\">Logout</a>
-            </li>");
+        if(isset($_SESSION["login"])) {
+          echo(
+              "<li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"index.php?controller=user&action=read\">Profil</a>
+              </li>".
+              "<li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"index.php?action=create\">Poster</a>
+              </li>".
+              "<li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"index.php?controller=user&action=deconnect\" tabindex=\"-1\" aria-disabled=\"true\">Logout</a>
+              </li>");
 
-            }
-            else{
-              echo(
-            "<li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"index.php?controller=user&action=create\">Inscription</a>
-            </li>".
-            "<li class=\"nav-item\">
-              <a class=\"nav-link\" href=\"index.php?controller=user&action=connect\" tabindex=\"-1\" aria-disabled=\"true\">Login</a>
-            </li>"
-          );
-          }  ?>
-    </ul>
-  </div>
-</nav>
+              }
+              else{
+                echo(
+              "<li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"index.php?controller=user&action=create\">Inscription</a>
+              </li>".
+              "<li class=\"nav-item\">
+                <a class=\"nav-link\" href=\"index.php?controller=user&action=connect\" tabindex=\"-1\" aria-disabled=\"true\">Login</a>
+              </li>"
+            );
+            }  ?>
+      </ul>
+    </div>
+    <form class="navbar-form navbar-left" action="/action_page.php">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </nav>
+
+</div>
 
 </header>
  

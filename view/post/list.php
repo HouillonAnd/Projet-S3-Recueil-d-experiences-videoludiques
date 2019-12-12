@@ -16,7 +16,7 @@
 		$titre_jeu=$jeu->getTitre();
 
 		$emotion=ModelEmotions::getEmotionById($emotion_id);
-
+		echo ("<div class=\"shadow-sm p-3 mb-5 bg-white rounded\">");
 		echo ("<div class=\"card\"> <div class=\"card-header\">".htmlspecialchars($titre)."</div>");
 		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> <p class=\"card-text\">".htmlspecialchars($contenu)."</p> <p>place pour les emotions</p> </div>");
 		echo("<div class=\"card-footer\">");
@@ -25,7 +25,7 @@
 		if(isset($_SESSION["login"]) && $_SESSION["login"]== $auteur_id){
 			echo("<br><a href=index.php?action=update&id=" . rawurlencode($p->getId()) . '>' . 'MODIFIER' . '</a>');
 		}
-		echo("</div></div> <br>");
+		echo("</div></div></div>");
 
 
 /*			    '<div> jeu: '.htmlspecialchars($titre_jeu).'<div>'.htmlspecialchars($contenu).'</div>';
