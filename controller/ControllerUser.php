@@ -135,8 +135,6 @@ class ControllerUser
       } else {
         //Si l'utlisateur modifie son compte
         if(Session::is_user($login)){
-          $_SESSION['login'] = $_GET['login'];
-          //Et si il est admin
           if(Session::is_admin()){
             $_SESSION['admin'] = $_GET['admin'];
           }

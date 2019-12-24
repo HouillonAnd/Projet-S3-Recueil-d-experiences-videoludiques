@@ -151,11 +151,10 @@
 
     public function update($data) {
       try {
-        $sql = "UPDATE _S3_User SET login=:login , email=:email, admin=:admin WHERE id=:id";
+        $sql = "UPDATE _S3_User SET email=:email, admin=:admin WHERE id=:id";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
             "id" =>$this->id,
-            "login" => $data['login'],
             "email" => $data['email'],
             //nomdutag => valeur, ...
         );

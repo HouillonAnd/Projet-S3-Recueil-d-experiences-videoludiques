@@ -28,8 +28,6 @@
     <input type="hidden" name="controller" value="user">
     <input type="hidden" name="id" value="<?php echo $id ?>">
 
-    <label for="login">Longin :</label>
-    <input type="text" id="login" name="login" value="<?php echo $login ?>" required>
     <label for="email">Email :</label>
     <input type="text" id="email" name="email" value="<?php echo $email ?>" required>
 
