@@ -2,7 +2,7 @@
 	require_once File::build_path(array('model', 'ModelJeu.php'));
 	require_once File::build_path(array('model', 'ModelEmotions.php'));
   	$id=$p -> getId();
-	$auteur_id=$p -> getAuteur_id();
+	$auteur_login=$p -> getAuteur_login();
 	$date_publication=$p -> getDate_publication();
 	$contenu=$p -> getContenu();
 	$jeu_id=$p -> getJeu_id();

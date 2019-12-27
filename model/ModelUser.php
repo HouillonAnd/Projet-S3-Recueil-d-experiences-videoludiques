@@ -4,17 +4,13 @@
   
 	class ModelUser
 	{
-		private $id;
 		private $login;
 		private $password;
 		private $email;
     private $date_enregistrement;
     private $admin;
 
-	    //getter      
-	    public function getId() {
-	        return $this->id;  
-	    }
+	    //getter    
 	    public function getLogin() {
 	        return $this->login;  
 	    }
@@ -71,28 +67,6 @@
 
     }
 
-    public static function getUserById($id) {
-      $sql = "SELECT * from _S3_User WHERE id=:nom_tag";
-      // Préparation de la requête
-      $req_prep = Model::$pdo->prepare($sql);
-
-      $values = array(
-          "nom_tag" => $id,
-          //nomdutag => valeur, ...
-      );
-      // On donne les valeurs et on exécute la requête   
-      $req_prep->execute($values);
-
-      // On récupère les résultats comme précédemment
-      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUser');
-      $tab_us = $req_prep->fetchAll();
-      // Attention, si il n'y a pas de résultats, on renvoie false
-      if (empty($tab_us)){
-          return false;
-        }
-      return $tab_us[0];
-    }
-
     public static function getUserByLogin($login) {
       $sql = "SELECT * from _S3_User WHERE login=:login";
       // Préparation de la requête
@@ -115,15 +89,15 @@
       return $tab_us[0];
     }
 
-    public static function deleteById($id)
+    public static function deleteByLogin($login)
     {
       try {
-        $sql = "DELETE from _S3_User WHERE id=:nom_tag";
+        $sql = "DELETE from _S3_User WHERE login=:nom_tag";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
         $values = array(
-            "nom_tag" => $id,
+            "nom_tag" => $login,
             //nomdutag => valeur, ...
         );
         // On donne les valeurs et on exécute la requête   
@@ -151,10 +125,10 @@
 
     public function update($data) {
       try {
-        $sql = "UPDATE _S3_User SET email=:email, admin=:admin WHERE id=:id";
+        $sql = "UPDATE _S3_User SET email=:email, admin=:admin WHERE login=:login";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
-            "id" =>$this->id,
+            "login" =>$this->login,
             "email" => $data['email'],
             //nomdutag => valeur, ...
         );
@@ -173,10 +147,10 @@
 
     public function updatepassword($data) {
       try {
-        $sql = "UPDATE _S3_User SET password=:password WHERE id=:id";
+        $sql = "UPDATE _S3_User SET password=:password WHERE login=:login";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
-            "id" => $this->id,
+            "login" => $this->login,
             "password" => Security::chiffrer($data['password']),
             //nomdutag => valeur, ...
         );

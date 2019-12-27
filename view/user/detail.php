@@ -9,5 +9,5 @@
     // EOT;
     
     echo $login;
-    echo "<br><a href=index.php?controller=user&action=update&id=" . rawurlencode($v->getId()) . '>' . 'MODIFIER' . '</a>'.'<br>';
+    echo "<br><a href=index.php?controller=user&action=update&login=" . rawurlencode($v->getLogin()) . '>' . 'MODIFIER' . '</a>'.'<br>';
 ?>

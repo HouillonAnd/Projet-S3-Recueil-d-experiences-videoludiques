@@ -2,7 +2,6 @@
 
 <input type="hidden" name="action" value="updatedPassword">
 <input type="hidden" name="controller" value="user">
-<input type="hidden" name="id" value="<?php echo $id?>">
 <input type="hidden" name="login" value="<?php echo $login?>">
 
 <label for="oldpassword">mot de passe actuelle :</label>

@@ -39,7 +39,7 @@ class ControllerPost{
         $option = 'required';
         $id = "";
         $auteur = ModelUser::getUserByLogin($_SESSION["login"]);
-        $auteur_id = $auteur->getId();
+        $auteur_login = $auteur->getLogin();
         $date_publication = "";
         $contenu = "";
         $jeu_id = "";
@@ -113,7 +113,7 @@ class ControllerPost{
         $option = 'readonly';
         $option = 'readonly';
         $id = $v->getId();
-        $auteur_id = $v->getAuteur_id();
+        $auteur_login = $v->getAuteur_login();
         $date_publication = $v->getDate_publication();
         $contenu = $v->getContenu();
         $jeu_id = $v->getJeu_id();

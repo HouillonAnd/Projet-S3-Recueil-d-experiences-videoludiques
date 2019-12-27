@@ -79,8 +79,8 @@ class ControllerUser
 
   public static function delete()
   {
-    $id = $_GET['id'];
-    $v = ModelUser::deleteById($id);
+    $login = $_GET['login'];
+    $v = ModelUser::deleteByLogin($login);
     $controller = 'user';
 
     if ($v == false) {
@@ -98,8 +98,8 @@ class ControllerUser
 
   public static function update()
   {
-    $id = $_GET['id'];
-    $v = ModelUser::getUserById($id);
+    $login = $_GET['login'];
+    $v = ModelUser::getUserByLogin($login);
 
 
     $controller = 'user';
@@ -121,15 +121,15 @@ class ControllerUser
 
   public static function updated()
   {
-    $id = $_GET['id'];
+    $login = $_GET['login'];
     $controller = 'user';
-    $v = ModelUser::getUserById($id);
+    $v = ModelUser::getUserByLogin($login);
     $login = $v->getLogin();
 
     if (Session::is_user($login) || Session::is_admin()) {
       if ($v->update($_GET) == false) {
         $view = 'error';
-        $pagetitle = 'Erreur d\'Id';
+        $pagetitle = 'Erreur de Login';
 
         require_once File::build_path(array('view', 'view.php'));
       } else {
@@ -140,7 +140,7 @@ class ControllerUser
           }
         }
         
-        $v = ModelUser::getUserById($id);
+        $v = ModelUser::getUserByLogin($login);
         $view = 'detail';
         $pagetitle = 'User Mis à jour !';
 
@@ -151,7 +151,6 @@ class ControllerUser
 
   public static function updatePassword()
   {
-    $id = $_GET['id'];
     $login = $_GET['login'];
 
     $controller = 'user';
@@ -167,7 +166,7 @@ class ControllerUser
 
   public static function updatedPassword()
   {
-    $v = ModelUser::getUserById($_GET['id']);
+    $v = ModelUser::getUserByLogin($_GET['login']);
     $login = $v->getLogin();
 
     $controller = 'user';
