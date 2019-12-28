@@ -20,7 +20,7 @@
 		echo ("<div class=\"card\"> <div class=\"card-header\">".htmlspecialchars($titre)."</div>");
 		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> <p class=\"card-text\">".htmlspecialchars($contenu)."</p> <p>place pour les emotions</p> </div>");
 		echo("<div class=\"card-footer\">");
-		echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)."</div></div>");
+		echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)." <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"button\" aria-pressed=\"false\">  Upvote </button></div></div>");
 		echo("<div class=\"col-sm-6\"> <div class=\"card\">Auteur : ".htmlspecialchars($auteur_login)."</div></div></div>");
 		if(isset($_SESSION["login"]) && $_SESSION["login"] == $auteur_login){
 			echo("<br><a href=index.php?action=update&id=" . rawurlencode($p->getId()) . '>' . 'MODIFIER' . '</a>');
