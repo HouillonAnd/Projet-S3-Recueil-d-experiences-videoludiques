@@ -3,6 +3,7 @@
 	require_once File::build_path(array("controller","ControllerEmotions.php"));	
 	require_once File::build_path(array("controller","ControllerJeu.php"));
 	require_once File::build_path(array("controller","ControllerUser.php"));
+	require_once File::build_path(array("lib","Session.php"));
 	
 	// On recupère l'action passée dans l'URL
 

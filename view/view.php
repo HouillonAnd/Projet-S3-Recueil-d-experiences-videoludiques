@@ -5,16 +5,17 @@
   <meta charset="UTF-8">
   <title><?php echo $pagetitle; ?></title>
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/8cc73e8345.js" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
+  <link href="./view/style.css" rel="stylesheet"> 
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 </head>
 
 <body>
-
 
 <header>
   <div class="shadow p-3 mb-5 bg-white rounded">
@@ -54,7 +55,13 @@
                 <a class=\"nav-link\" href=\"index.php?controller=user&action=connect\" tabindex=\"-1\" aria-disabled=\"true\">Login</a>
               </li>"
             );
-            }  ?>
+            }  
+            if(Session::is_admin()){
+              echo "<li class=\"nav-item\">
+                      <a class=\"nav-link\" href=\"index.php?controller=user&action=readAll\" tabindex=\"-1\" aria-disabled=\"true\">Utilisateurs</a>
+                    </li>";
+            }
+            ?>
       </ul>
     </div>
 

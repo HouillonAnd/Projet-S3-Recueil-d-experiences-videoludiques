@@ -7,7 +7,6 @@ class ControllerUser
 {
   public static function readAll()
   {
-
     $controller = 'user';
     $view = 'list';
     $pagetitle = 'Liste des Users';
