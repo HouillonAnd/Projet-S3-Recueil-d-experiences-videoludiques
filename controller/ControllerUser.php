@@ -8,11 +8,18 @@ class ControllerUser
   public static function readAll()
   {
     $controller = 'user';
-    $view = 'list';
-    $pagetitle = 'Liste des Users';
 
-    $tab_v = $tab_v = ModelUser::getAllUser();     //appel au modèle pour gerer la BD
-    require_once File::build_path(array('view', 'view.php'));
+    if(Session::is_admin()){
+      $view = 'list';
+      $pagetitle = 'Liste des Users';
+
+      $tab_v = $tab_v = ModelUser::getAllUser();     //appel au modèle pour gerer la BD
+      require_once File::build_path(array('view', 'view.php'));
+    }else{
+      $view = 'error';
+      $pagetitle = 'erreur d\'accès';
+      require_once File::build_path(array('view', 'view.php'));
+    }
   }
 
 
@@ -223,4 +230,28 @@ class ControllerUser
     setcookie(session_name(), '', time() - 1); // deletes the session cookie containing the session ID
     ControllerPost::readAll();
   }
+
+
+  //à sécuriser
+  public static function putAdmin(){
+    if(Session::is_admin()){
+      $user = ModelUser::getUserByLogin($_GET["login"]);
+      if($user->updateAdmin() == true){
+        self::readAll();
+      }else{
+        $controller = 'user';
+        $view = 'error';
+        $pagetitle = 'Erreur';
+        require_once File::build_path(array('view', 'view.php'));
+      }
+    }else{
+      $controller = 'user';
+      $view = 'error';
+      $pagetitle = 'Erreur d\'accès';
+      require_once File::build_path(array('view', 'view.php'));
+    }
+  }
+
 }
+
+

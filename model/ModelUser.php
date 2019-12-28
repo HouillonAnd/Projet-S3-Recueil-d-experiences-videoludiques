@@ -162,6 +162,24 @@
         return false;
       }
     }
+
+    public function updateAdmin(){
+      try {
+        $sql = "UPDATE _S3_User SET admin=:admin WHERE login=:login";
+        $req_prep = Model::$pdo->prepare($sql);
+        $values = array(
+            "login" => $this->login,
+            "admin" => !$this->admin,
+            //nomdutag => valeur, ...
+        );
+        // On donne les valeurs et on exécute la requête   
+        $req_prep->execute($values);
+
+        return true;  
+      }catch (PDOException $e) {
+        return false;
+      }
+    }
     
     public static function checkPassword($login,$mot_de_passe_chiffre){
       $sql = "SELECT * FROM _S3_User WHERE login =:login AND password =:password";
