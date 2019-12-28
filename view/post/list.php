@@ -22,18 +22,25 @@
 		echo ("<div class=\"card\"> <div class=\"card-header\">".htmlspecialchars($titre)."</div>");
 		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
 			<p class=\"card-text\">".htmlspecialchars($contenu)."</p> 
-			<p>tristesse ".htmlspecialchars($emotion->getTristesse())." joie ".htmlspecialchars($emotion->getJoie())." colère ".htmlspecialchars($emotion->getColere())." peur ".htmlspecialchars($emotion->getPeur())." surprise ".htmlspecialchars($emotion->getSurprise())." dégout ".htmlspecialchars($emotion->getDegout())." </p> </div>");
+
+			
+			<button type=\"button\" class=\"btn btn-outline-secondary\">tristesse ".htmlspecialchars($emotion->getTristesse())."</button>
+			<button type=\"button\" class=\"btn btn-outline-success\">joie ".htmlspecialchars($emotion->getJoie())."</button>
+			<button type=\"button\" class=\"btn btn-outline-danger\">colère ".htmlspecialchars($emotion->getColere())."</button>
+			<button type=\"button\" class=\"btn btn-outline-warning\">peur ".htmlspecialchars($emotion->getPeur())."</button>
+			<button type=\"button\" class=\"btn btn-outline-info\">surprise ".htmlspecialchars($emotion->getSurprise())."</button>
+			
+			<button type=\"button\" class=\"btn btn-outline-dark\">dégout ".htmlspecialchars($emotion->getDegout())."</button>");
 		
 
 		echo("<div class=\"card-footer\">");
-
 		echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)." <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"button\" aria-pressed=\"false\">  Upvote </button></div></div>");
 
 		echo("<div class=\"col-sm-6\"> <div class=\"card\">Auteur : ".htmlspecialchars($auteur_id)."</div></div></div>");
 		if(isset($_SESSION["login"]) && $_SESSION["login"] == $auteur_id){
 			echo("<br><a href=index.php?action=update&id=" . rawurlencode($p->getId()) . '>' . 'MODIFIER' . '</a>');
 		}
-		echo("</div></div></div>");
+		echo("</div></div></div></div>");
     }
 ?>
 
