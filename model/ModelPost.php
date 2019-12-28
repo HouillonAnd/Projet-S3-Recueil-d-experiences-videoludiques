@@ -4,7 +4,7 @@
 	class ModelPost
 	{
 		private $id;
-		private $auteur_login;
+		private $auteur_id;
 		private $date_publication;
 		private $contenu;
 		private $jeu_id;
@@ -16,8 +16,8 @@
 	    public function getId() {
 	        return $this->id;  
 	    }
-	    public function getAuteur_login() {
-	        return $this->auteur_login;  
+	    public function getAuteur_id() {
+	        return $this->auteur_id;  
 	    }
 	    public function getDate_publication() {
 	        return $this->date_publication;  
@@ -42,8 +42,8 @@
 	    public function setId($id2) {
 	        $this->id = $id2;
 	    } 
-	    public function setAuteur_login($auteur_login2) {
-	        $this->auteur_id =$auteur_login2;
+	    public function setAuteur_id($auteur_id2) {
+	        $this->auteur_id =$auteur_id2;
 	    }
 	    public function setDate_publication($date_publication2) {
 	       	$this->date_publication = $date_publication2;
@@ -131,12 +131,12 @@
 
     public function save() {
     
-      $statement ="INSERT INTO _S3_Post(id, auteur_id,date_publication, contenu,jeu_id, titre, emotion_id, nbUpvote) VALUES(:id, :auteur_login, :date_publication, :contenu,:jeu_id, :titre, :emotion_id, :nbUpvote)";
+      $statement ="INSERT INTO _S3_Post(id, auteur_id,date_publication, contenu,jeu_id, titre, emotion_id, nbUpvote) VALUES(:id, :auteur_id, :date_publication, :contenu,:jeu_id, :titre, :emotion_id, :nbUpvote)";
       $req_prep = Model::$pdo->prepare($statement);
 
       $values = array(
         "id" => $this->id,
-        "auteur_login" => $this->auteur_login,
+        "auteur_id" => $this->auteur_id,
         "date_publication" => $this->date_publication,
         "contenu" => $this->contenu,
         "jeu_id" => $this->jeu_id,
@@ -150,11 +150,11 @@
 
     public function update($data) {
       try {
-        $sql = "UPDATE _S3_Post SET auteur_login=:auteur_login , date_publication=:date_publication , contenu=:contenu , jeu_id=:jeu_id , titre=:titre , emotion_id=:emotion_id, nbUpvote=:nbUpvote WHERE id=:id";
+        $sql = "UPDATE _S3_Post SET auteur_id=:auteur_id , date_publication=:date_publication , contenu=:contenu , jeu_id=:jeu_id , titre=:titre , emotion_id=:emotion_id, nbUpvote=:nbUpvote WHERE id=:id";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
              "id" =>$this->id,
-             "auteur_login" => $data['auteur_login'],
+             "auteur_id" => $data['auteur_id'],
              "date_publication" => $data['date_publication'],
              "contenu" => $data['contenu'],
              "jeu_id" => $data['jeu_id'],
