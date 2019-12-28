@@ -16,9 +16,12 @@
 		$titre_jeu=$jeu->getTitre();
 
 		$emotion=ModelEmotions::getEmotionById($emotion_id);
+
 		echo ("<div class=\"shadow-sm p-3 mb-5 bg-white rounded\">");
 		echo ("<div class=\"card\"> <div class=\"card-header\">".htmlspecialchars($titre)."</div>");
-		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> <p class=\"card-text\">".htmlspecialchars($contenu)."</p> <p>place pour les emotions</p> </div>");
+		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
+			<p class=\"card-text\">".htmlspecialchars($contenu)."</p> 
+			<p>tristesse ".htmlspecialchars($emotion->getTristesse())." joie ".htmlspecialchars($emotion->getJoie())." colère ".htmlspecialchars($emotion->getColere())." peur ".htmlspecialchars($emotion->getPeur())." surprise ".htmlspecialchars($emotion->getSurprise())." dégout ".htmlspecialchars($emotion->getDegout())." </p> </div>");
 		echo("<div class=\"card-footer\">");
 		echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)."</div></div>");
 		echo("<div class=\"col-sm-6\"> <div class=\"card\">Auteur : ".htmlspecialchars($auteur_login)."</div></div></div>");
