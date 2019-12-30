@@ -1,5 +1,6 @@
 var searchBar = document.getElementById("gametitle");
 searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
+var searchBar = document.getElementById("gametitle");
 
 
 function gameSearch(title) {
@@ -29,4 +30,9 @@ function showgame(gameTab){
   }else{
     gameTab.forEach((element) => auto_box.innerHTML=auto_box.innerHTML+"<p>"+element.titre+"</p>");
   }
+}
+
+function upvote(){
+  var httpRequest = new XMLHttpRequest();
+
 }
