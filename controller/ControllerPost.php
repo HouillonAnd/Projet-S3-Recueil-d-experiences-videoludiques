@@ -125,10 +125,15 @@ class ControllerPost{
   
   
         $controller='post';
-        $view='form';
-        $pagetitle='Mise à jour du Post';
-  
-        require_once File::build_path(array('view', 'view.php'));
+        if(Session::is_admin() || Session::is_user($auteur_id)){
+          $view='form';
+          $pagetitle='Mise à jour du Post';
+          require_once File::build_path(array('view', 'view.php'));
+        }else{
+          $view='error';
+          $pagetitle='erreur d\'accès';
+          require_once File::build_path(array('view', 'view.php'));
+        }
       }
 
     public static function updated() {
@@ -137,15 +142,21 @@ class ControllerPost{
         $controller ='jeu';
         $v = ModelPost::getPostById($id);
         $emotion = ModelEmotions::getEmotionById($emotion_id);
-  
-          
-        if ($v->update($_GET) == false & $emotion->update($_GET) == false) {
+        $auteur_id = $v->getAuteur_id();
+
+        if(Session::is_user($auteur_id)){
+          if ($v->update($_GET) == false & $emotion->update($_GET) == false) {
+            $view='error';
+            $pagetitle='Erreur d\'Id';
+            require_once File::build_path(array('view', 'view.php'));
+          }else {
+            self::readAll(); 
+          }
+        }else{
           $view='error';
-          $pagetitle='Erreur d\'Id';
+          $pagetitle='Erreur d\'accès';
           require_once File::build_path(array('view', 'view.php'));
-        }else {
-          self::readAll(); 
-        } 
+        }
     }
 }
 ?>
