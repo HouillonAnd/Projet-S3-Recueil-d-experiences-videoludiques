@@ -15,7 +15,6 @@
 		$jeu=ModelJeu::getJeuById($jeu_id);
 		$titre_jeu=$jeu->getTitre();
 		$emotion=ModelEmotions::getEmotionById($emotion_id);
-		// echo("33".$auteur_id);
 
 		$emotion=ModelEmotions::getEmotionById($emotion_id);
 		echo ("<div class=\"shadow-sm p-3 mb-5 bg-white rounded\">");
@@ -29,12 +28,11 @@
 			<button type=\"button\" class=\"btn btn-outline-danger\">colère ".htmlspecialchars($emotion->getColere())."</button>
 			<button type=\"button\" class=\"btn btn-outline-warning\">peur ".htmlspecialchars($emotion->getPeur())."</button>
 			<button type=\"button\" class=\"btn btn-outline-info\">surprise ".htmlspecialchars($emotion->getSurprise())."</button>
-			
 			<button type=\"button\" class=\"btn btn-outline-dark\">dégout ".htmlspecialchars($emotion->getDegout())."</button>");
 		
 
 		echo("<div class=\"card-footer\">");
-		echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)." <button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"button\" aria-pressed=\"false\">  Upvote </button></div></div>");
+		echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)." <button type=\"button\" name=\"btn\" class=\"btn btn-primary btn-sm\" data-toggle=\"button\" aria-pressed=\"false\" id=\"$id\">Upvote </button></div></div>");
 
 		echo("<div class=\"col-sm-6\"> <div class=\"card\">Auteur : ".htmlspecialchars($auteur_id)."</div></div></div>");
 		if(isset($_SESSION["login"]) && $_SESSION["login"] == $auteur_id){

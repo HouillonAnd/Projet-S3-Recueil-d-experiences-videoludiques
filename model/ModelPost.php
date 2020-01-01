@@ -170,7 +170,23 @@
       }catch (PDOException $e) {
         return false;
       }
-    } 
+    }
+    
+    public function vote(){
+      try{
+        $sql = "UPDATE _S3_Post SET nbUpvote=:nbUpvote WHERE id=:id";
+        $req_prep = Model::$pdo->prepare($sql);
+        $values = array(
+          "id" => $this->id,
+          "nbUpvote" => $this->nbUpvote+1,
+        //nomdutag => valeur, ...
+        );
+      $req_prep->execute($values);
+        return true;  
+      }catch (PDOException $e) {
+        return false;
+      }
+    }
 	}
 	
 ?>

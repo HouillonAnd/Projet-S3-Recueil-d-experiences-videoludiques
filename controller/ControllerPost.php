@@ -158,5 +158,11 @@ class ControllerPost{
           require_once File::build_path(array('view', 'view.php'));
         }
     }
+
+    public static function vote(){
+      $id = $_GET["id"];
+      $post = ModelPost::getPostById($id);
+      echo  json_encode($post->vote());
+    }
 }
 ?>
