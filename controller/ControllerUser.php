@@ -27,7 +27,7 @@ class ControllerUser
   public static function read()  {
     
     $controller = 'user';
-    if (!isset($_SESSION)) {
+    if (isset($_SESSION)) {
       $login = $_SESSION['login'];
       $v = ModelUser::getUserByLogin($login);     //appel au modèle pour gerer la BD
       $tab_p = ModelPost::getPostByAuteur($login);
