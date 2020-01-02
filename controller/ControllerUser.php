@@ -44,7 +44,7 @@ class ControllerUser
       }
     }
     else{
-      $login=' ';
+      $login='';
       $view = 'connect';
       $pagetitle = 'veuillez vous connecter';
       require_once File::build_path(array('view', 'view.php'));
