@@ -15,16 +15,6 @@
 	        return $this->post_id;  
 	    }
 
-	       
-	    //setter 
-	    public function setUser_id($user_id2) {
-	        $this->user_id = $user_id2;
-	    } 
-	    public function setPost_id($login2) {
-	        $this->post_id =$post_id2;
-	    }
-
-
 	    public function __construct($u = NULL, $p = NULL) {
 		    if (!is_null($u) && !is_null($p)) {
 		        $this->user_id = $u;
@@ -35,7 +25,7 @@
 
     public static function getAllUpvote(){
 
-      $satement = "SELECT * FROM _S3_Upvote";
+      $satement = "SELECT * FROM _S3_Upvotes";
       $rep = Model::$pdo -> query($satement);
       
       $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelUpvote');
@@ -45,13 +35,14 @@
 
     }
 
-    public static function getUpvoteByUser_id($user_id) {
-      $sql = "SELECT * from _S3_Upvote WHERE user_id=:nom_tag";
+    public static function getUpvote($user_id, $post_id) {
+      $sql = "SELECT * from _S3_Upvotes WHERE user_id=:user_id AND post_id=:post_id";
       // Préparation de la requête
       $req_prep = Model::$pdo->prepare($sql);
 
       $values = array(
-          "nom_tag" => $user_id,
+          "user_id" => $user_id,
+          "post_id" => $post_id,
           //nomdutag => valeur, ...
       );
       // On donne les valeurs et on exécute la requête   
@@ -67,37 +58,16 @@
       return $tab_up[0];
     }
 
-    public static function getUpvoteByPost_id($post_id) {
-      $sql = "SELECT * from _S3_Upvote WHERE post_id=:nom_tag";
-      // Préparation de la requête
-      $req_prep = Model::$pdo->prepare($sql);
-
-      $values = array(
-          "nom_tag" => $post_id,
-          //nomdutag => valeur, ...
-      );
-      // On donne les valeurs et on exécute la requête   
-      $req_prep->execute($values);
-
-      // On récupère les résultats comme précédemment
-      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUpvote');
-      $tab_up = $req_prep->fetchAll();
-      // Attention, si il n'y a pas de résultats, on renvoie false
-      if (empty($tab_up)){
-          return false;
-        }
-      return $tab_up[0];
-    }
-
-    public static function deleteByUser_id($user_id)
+    public function delete()
     {
       try {
-        $sql = "DELETE from _S3_Upvote WHERE user_id=:nom_tag";
+        $sql = "DELETE from _S3_Upvotes WHERE user_id=:user_id AND post_id=:post_id";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
         $values = array(
-            "nom_tag" => $user_id,
+            "user_id" => $this->user_id,
+            "post_id" => $this->post_id,
             //nomdutag => valeur, ...
         );
         // On donne les valeurs et on exécute la requête   
@@ -107,38 +77,36 @@
         return false;
       }
     }
-
-    public static function deleteByPost_id($post_id)
-    {
-      try {
-        $sql = "DELETE from _S3_Upvote WHERE post_id=:nom_tag";
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $values = array(
-            "nom_tag" => $post_id,
-            //nomdutag => valeur, ...
-        );
-        // On donne les valeurs et on exécute la requête   
-        $req_prep->execute($values);
-        return true;
-      } catch (PDOException $e) {
-        return false;
-      }
-    }    
-    
 
     public function save() {
-    
-      $statement ="INSERT INTO _S3_Upvote(user_id,post_id) VALUES(:user_id,:post_id)";
+      $statement ="INSERT INTO _S3_Upvotes(user_id, post_id) VALUES(:user_id, :post_id)";
       $req_prep = Model::$pdo->prepare($statement);
-
+    
       $values = array(
         "user_id" => $this->user_id,
         "post_id" => $this->post_id,
       );    
+      $req_prep->execute($values);  
+      return true;
+    }
 
-      $req_prep->execute($values); 
+    public function checkvote(){
+      $sql = "SELECT * FROM _S3_Upvotes WHERE post_id =:post_id AND user_id =:user_id";
+      $req_prep = Model::$pdo->prepare($sql);
+
+      $values = array(
+        "user_id" => $this->user_id,
+        "post_id" => $this->post_id,
+      );  
+      $req_prep->execute($values);  
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUpvote');
+      $tab = $req_prep->fetchAll();
+
+      if(empty($tab)){
+        return false;
+      }else{
+        return true;
+      }
     }
 
 	}

@@ -172,13 +172,13 @@
       }
     }
     
-    public function vote(){
+    public function vote($coef){
       try{
         $sql = "UPDATE _S3_Post SET nbUpvote=:nbUpvote WHERE id=:id";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
           "id" => $this->id,
-          "nbUpvote" => $this->nbUpvote+1,
+          "nbUpvote" => $this->nbUpvote+$coef,
         //nomdutag => valeur, ...
         );
       $req_prep->execute($values);

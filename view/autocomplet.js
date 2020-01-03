@@ -7,14 +7,11 @@ var button = document.getElementsByName("btn");
 button.forEach((element) => element.onclick = upvote);
 
 function upvote() {
-  this.setAttribute("disabled", "");
   var httpRequest = new XMLHttpRequest();
   httpRequest.open("GET", "index.php?controller=post&action=vote&id="+this.id, true);
   httpRequest.addEventListener("load", function() {
     var answer = JSON.parse(httpRequest.responseText);
-    if(answer == true){
-      alert("JAIME");
-    }else{
+    if(answer == false){
       alert("ERROR");
     }
   });

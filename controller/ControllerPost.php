@@ -1,5 +1,6 @@
 <?php
 require_once File::build_path(array('model','ModelPost.php'));  
+require_once File::build_path(array('model','ModelUpvote.php')); 
 class ControllerPost{
 
     public static function readAll(){
@@ -161,8 +162,19 @@ class ControllerPost{
 
     public static function vote(){
       $id = $_GET["id"];
+      $login = $_SESSION['login'];
       $post = ModelPost::getPostById($id);
-      echo  json_encode($post->vote());
+      $vote = new ModelUpvote($login, $id);
+      if($vote->checkvote() == false){
+        $vote->save();
+        echo  json_encode($post->vote(+1));
+      }else{
+        if($vote->delete() == true){
+          echo  json_encode($post->vote(-1));
+        }else{
+          echo json_encode("falsedelet");
+        }
+      }
     }
 }
 ?>
