@@ -41,6 +41,3 @@
 		echo("</div></div></div></div>");
     }
 ?>
-
-<!-- //webinfo.iutmontp.univ-montp2.fr/~houillona/REV -->
-<!-- //Projet-S3-Recueil-d-experiences-videoludiques -->

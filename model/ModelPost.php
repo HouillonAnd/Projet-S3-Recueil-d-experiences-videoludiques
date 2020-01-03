@@ -109,6 +109,24 @@
       return $tab_post[0];
     }
 
+    public static function getPostByAuteur($login){
+      $sql = "SELECT * from _S3_Post WHERE auteur_id=:nom_tag";
+      $req_prep = Model::$pdo->prepare($sql);
+
+      $values = array(
+        "nom_tag" => $login,
+        //nomdutag => valeur, ...
+      );
+      $req_prep->execute($values);
+      $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPost');
+      $tab_post = $req_prep->fetchAll();
+
+      if (empty($tab_post)){
+        return false;
+      }
+      return $tab_post[0];
+    }
+
     public static function deleteById($id)
     {
       try {
