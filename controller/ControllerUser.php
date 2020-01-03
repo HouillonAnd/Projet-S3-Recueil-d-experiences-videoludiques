@@ -1,6 +1,7 @@
 <?php
 
 require_once File::build_path(array('model', 'ModelUser.php'));
+require_once File::build_path(array('model', 'ModelPost.php'));
 require_once File::build_path(array('lib', 'Session.php'));
 
 class ControllerUser
@@ -22,24 +23,33 @@ class ControllerUser
     }
   }
 
-
-  public static function read()
-  {
-    $login = $_SESSION['login'];
-    $v = ModelUser::getUserByLogin($login);     //appel au modèle pour gerer la BD
+  
+  public static function read()  {
+    
     $controller = 'user';
+    if (isset($_SESSION)) {
+      $login = $_SESSION['login'];
+      $v = ModelUser::getUserByLogin($login);     //appel au modèle pour gerer la BD
+      $tab_p = ModelPost::getPostByAuteur($login);
+      if ($v == false) {
+        $view = 'error';
+        $pagetitle = 'Erreur d\'id';
 
-    if ($v == false) {
-      $view = 'error';
-      $pagetitle = 'Erreur d\'id';
+        require_once File::build_path(array('view', 'view.php'));
+      } else {
+        $view = 'detail';
+        $pagetitle = 'Profile utilisateur';
 
-      require_once File::build_path(array('view', 'view.php'));
-    } else {
-      $view = 'detail';
-      $pagetitle = 'Profile utilisateur';
-
+        require_once File::build_path(array('view', 'view.php'));
+      }
+    }
+    else{
+      $login='';
+      $view = 'connect';
+      $pagetitle = 'veuillez vous connecter';
       require_once File::build_path(array('view', 'view.php'));
     }
+    
   }
 
   public static function create()
