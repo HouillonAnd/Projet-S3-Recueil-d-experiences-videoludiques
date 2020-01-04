@@ -32,7 +32,7 @@
 	<input type="range" list="tickmarks"  class="PostRange"name="peur" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getPeur())?>" required><br>
 	<label>-la surprise procurée par le jeu :  </label>
 	<input type="range" list="tickmarks"  class="PostRange"name="surprise" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getSurprise())?>" required><br>
-	<label>-le dégout procurée par le jeu :  </label>
+	<label>-le dégout procuré par le jeu :  </label>
 	<input type="range" list="tickmarks"  class="PostRange"name="degout" min=0 max=100  value= "<?php echo($emotion == false?"0":$emotion->getDegout())?>" required><br>
 
 	<!-- <input type="range" list="tickmarks" class="PostRange"> -->
