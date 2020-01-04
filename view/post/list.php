@@ -17,18 +17,56 @@
 		$emotion=ModelEmotions::getEmotionById($emotion_id);
 
 		$emotion=ModelEmotions::getEmotionById($emotion_id);
-		echo ("<div class=\"shadow-sm p-3 mb-5 bg-white rounded\">");
-		echo ("<div class=\"card\"> <div class=\"card-header\">".htmlspecialchars($titre)."</div>");
-		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
-			<p class=\"card-text\">".htmlspecialchars($contenu)."</p> 
+		$tristesse=$emotion->getTristesse();
+		$joie=$emotion->getJoie();
+		$colere=$emotion->getColere();
+		$peur=$emotion->getPeur();
+		$surprise=$emotion->getSurprise();
+		$degout=$emotion->getDegout();
 
-			
-			<button type=\"button\" class=\"btn btn-outline-secondary\">tristesse ".htmlspecialchars($emotion->getTristesse())."</button>
-			<button type=\"button\" class=\"btn btn-outline-success\">joie ".htmlspecialchars($emotion->getJoie())."</button>
-			<button type=\"button\" class=\"btn btn-outline-danger\">colère ".htmlspecialchars($emotion->getColere())."</button>
-			<button type=\"button\" class=\"btn btn-outline-warning\">peur ".htmlspecialchars($emotion->getPeur())."</button>
-			<button type=\"button\" class=\"btn btn-outline-info\">surprise ".htmlspecialchars($emotion->getSurprise())."</button>
-			<button type=\"button\" class=\"btn btn-outline-dark\">dégout ".htmlspecialchars($emotion->getDegout())."</button>");
+
+		echo ("<div class=\"shadow-sm p-3 mb-5 bg-white rounded\">");
+		echo ("<div class=\"card\"> <div class=\"card-header\"><h3>".htmlspecialchars($titre)."</h3></div>");
+		echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
+			<p class=\"container\">".htmlspecialchars($contenu)."</p> 
+
+			<div>Tristesse<br>
+			<div class=\"progress\">
+				<div class=\"progress-bar\" role=\"progressbar\" style=\"width:".htmlspecialchars($tristesse)."%;\" aria-valuenow=\"".htmlspecialchars($tristesse)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($tristesse)."</div>
+			</div>
+			</div>
+
+			<div>Joie<br>
+			<div class=\"progress\">
+				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($joie)."%;\" aria-valuenow=\"".htmlspecialchars($joie)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($joie)."</div>
+			</div>
+			</div>
+
+			<div>Colère<br>
+			<div class=\"progress\">
+				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($colere)."%;\" aria-valuenow=\"".htmlspecialchars($colere)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($colere)."</div>
+			</div>
+			</div>
+
+			<div>Peur<br>
+			<div class=\"progress\">
+				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($peur)."%;\" aria-valuenow=\"".htmlspecialchars($peur)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($peur)."</div>
+			</div>
+			</div>
+
+			<div>Surprise<br>
+			<div class=\"progress\">
+				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($surprise)."%;\" aria-valuenow=\"".htmlspecialchars($surprise)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($surprise)."</div>
+			</div>
+			</div>
+
+			<div>Dégoût<br>
+			<div class=\"progress\">
+				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($degout)."%;\" aria-valuenow=\"".htmlspecialchars($degout)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($degout)."</div>
+			</div>
+			</div>
+			");
+
 		
 
 		echo("<div class=\"card-footer\">");
