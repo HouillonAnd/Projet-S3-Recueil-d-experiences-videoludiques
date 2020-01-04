@@ -30,7 +30,7 @@ class ControllerUser
     if (isset($_SESSION)) {
       $login = $_SESSION['login'];
       $v = ModelUser::getUserByLogin($login);     //appel au modèle pour gerer la BD
-      $tab_p = ModelPost::getPostByAuteur($login);
+      $tab_p = ModelPost::getAllPostByAuteur($login);
       if ($v == false) {
         $view = 'error';
         $pagetitle = 'Erreur d\'id';
@@ -116,7 +116,6 @@ class ControllerUser
     $login = $_GET['login'];
     $v = ModelUser::getUserByLogin($login);
 
-
     $controller = 'user';
     $view = 'generalUpdate';
     $pagetitle = 'Mise à jour des User';
@@ -171,7 +170,7 @@ class ControllerUser
     $controller = 'user';
     $view = 'passwordUpdate';
     $pagetitle = 'change password';
-    if(Session::is_user($login) || Session::is_admin()){
+    if(Session::is_user($login)){
       require_once File::build_path(array('view', 'view.php'));
     }else{
       self::connect();

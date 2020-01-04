@@ -109,7 +109,7 @@
       return $tab_post[0];
     }
 
-    public static function getPostByAuteur($login){
+    public static function getAllPostByAuteur($login){
       $sql = "SELECT * from _S3_Post WHERE auteur_id=:nom_tag";
       $req_prep = Model::$pdo->prepare($sql);
 
@@ -124,7 +124,7 @@
       if (empty($tab_post)){
         return false;
       }
-      return $tab_post[0];
+      return $tab_post;
     }
 
     public static function deleteById($id)
