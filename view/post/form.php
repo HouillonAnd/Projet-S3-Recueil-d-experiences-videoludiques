@@ -23,19 +23,19 @@
 	<!-- Expression des emotions sous forme d'entrée de valeurs.-->
 	<label>Sur une échelle de 0 à 100 mesurez: </label><br>
 	<label>-la tristesse procurée par le jeu :  </label>
-	<input type="range" list="tickmarks" name="tristesse" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getTristesse())?>" required><br>
+	<input type="range" list="tickmarks"  class="PostRange"name="tristesse" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getTristesse())?>" required><br>
 	<label>-la joie procurée par le jeu :  </label>
-	<input type="range" list="tickmarks" name="joie" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getJoie())?>" required><br>
+	<input type="range" list="tickmarks"  class="PostRange"name="joie" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getJoie())?>" required><br>
 	<label>-la colère procurée par le jeu :  </label>
-	<input type="range" list="tickmarks" name="colere" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getColere())?>" required><br>
+	<input type="range" list="tickmarks"  class="PostRange"name="colere" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getColere())?>" required><br>
 	<label>-la peur procurée par le jeu :  </label>
-	<input type="range" list="tickmarks" name="peur" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getPeur())?>" required><br>
+	<input type="range" list="tickmarks"  class="PostRange"name="peur" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getPeur())?>" required><br>
 	<label>-la surprise procurée par le jeu :  </label>
-	<input type="range" list="tickmarks" name="surprise" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getSurprise())?>" required><br>
+	<input type="range" list="tickmarks"  class="PostRange"name="surprise" min=0 max=100 value= "<?php echo($emotion == false?"0":$emotion->getSurprise())?>" required><br>
 	<label>-le dégout procurée par le jeu :  </label>
-	<input type="range" list="tickmarks" name="degout" min=0 max=100  value= "<?php echo($emotion == false?"0":$emotion->getDegout())?>" required><br>
+	<input type="range" list="tickmarks"  class="PostRange"name="degout" min=0 max=100  value= "<?php echo($emotion == false?"0":$emotion->getDegout())?>" required><br>
 
-	<input type="range" list="tickmarks">
+	<!-- <input type="range" list="tickmarks" class="PostRange"> -->
 
 	<datalist id="tickmarks">
 	  <option value="0">
