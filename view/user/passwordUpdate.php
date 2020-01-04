@@ -1,20 +1,3 @@
-<!-- <form method="get" action="./index.php">
-
-    <input type="hidden" name="action" value="updatedPassword">
-    <input type="hidden" name="controller" value="user">
-    <input type="hidden" name="login" value="<?php echo $login ?>">
-
-    <label for="oldpassword">mot de passe actuelle :</label>
-    <input type="password" id="oldpassword" name="oldpassword" required>
-    <label for="password">Password :</label>
-    <input type="password" id="password" name="password" required>
-    <label for="password2">Confirm password :</label>
-    <input type="password" id="password2" name="password2" required>
-
-    <input type="submit" name="updatePassword" value="change">
-
-</form> -->
-
 <div class="row justify-content-center">
 
     <div class="card" style="width: 18rem;">
