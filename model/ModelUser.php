@@ -125,17 +125,13 @@
 
     public function update($data) {
       try {
-        $sql = "UPDATE _S3_User SET email=:email, admin=:admin WHERE login=:login";
+        $sql = "UPDATE _S3_User SET email=:email WHERE login=:login";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
             "login" =>$this->login,
             "email" => $data['email'],
             //nomdutag => valeur, ...
         );
-        //si l'utilisateur est admin on met à jour la valeur de admin dans la table
-        if(Session::is_admin()){
-          $values['admin'] = $data['admin']; 
-        }
         // On donne les valeurs et on exécute la requête   
         $req_prep->execute($values);
 
