@@ -73,12 +73,15 @@ class ControllerUser
 
   public static function created()
   {
-
-    if ($_GET["password"] == $_GET["password2"]) {
-      $user = new ModelUser($_GET);
-      $user->save();
-      ControllerPost::readAll(); //on redirifera plus tard l'utlisateur sur sa page perso
-    } else {
+    if (filter_var($_GET['mail'], FILTER_VALIDATE_EMAIL)){
+      if ($_GET["password"] == $_GET["password2"]) {
+        $user = new ModelUser($_GET);
+        $user->save();
+        ControllerPost::readAll(); //on redirifera plus tard l'utlisateur sur sa page perso
+      } else {
+        self::create();
+      }
+    }else{
       self::create();
     }
   }
