@@ -4,6 +4,9 @@ footer{
 header{
   background-color: #935DCD ;
 }
+body{
+  background-color: #EEECFA;
+}
 
 #search-result{
   display: none;
@@ -11,6 +14,14 @@ header{
 
 #search-result>p:hover{
   cursor: pointer;
+}
+
+#post{
+  background-color: #3720BB;
+}
+
+#titre{
+  background-color: #C553C9;
 }
 
 .PostRange {

@@ -36,8 +36,8 @@
 			$degout=$emotion->getDegout();
 
 
-			echo ("<div class=\"shadow-sm p-3 mb-5 bg-white rounded\">");
-			echo ("<div class=\"card\"> <div class=\"card-header\"><h3>".ucfirst(htmlspecialchars($titre))."</h3></div>");
+			echo ("<div class=\"shadow-sm p-3 mb-5 rounded\" id=\"post\">");
+			echo ("<div class=\"card\"> <div class=\"card-header\" id=\"titre\"><h3>".ucfirst(htmlspecialchars($titre))."</h3></div>");
 			echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
 				<p class=\"container\">".htmlspecialchars($contenu)."</p> 
 
