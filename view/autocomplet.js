@@ -59,10 +59,10 @@ function gameResponse(httpRequest){
 
 function showgame(gameTab){
   auto_box.innerHTML="";
+  auto_box.style.display = "block";
   if(gameTab == false){
     auto_box.innerHTML="Aucun jeux";
   }else{
-    auto_box.style.display = "block";
     gameTab.forEach((element) => auto_box.innerHTML=auto_box.innerHTML+"<p>"+element.titre+"</p>");
   }
 }
