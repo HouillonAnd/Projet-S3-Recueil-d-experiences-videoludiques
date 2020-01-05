@@ -37,37 +37,37 @@
 
 				<div class="form-group">
 					<label>Tristesse</label>
-					<input type="range" list="tickmarks" class="PostRange" name="tristesse" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getTristesse()) ?>" required>
+					<input type="range" list="tickmarks" class="PostRange bg-secondary"  name="tristesse" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getTristesse()) ?>" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
 				<div class="form-group">
 					<label>Joie</label>
-					<input type="range" list="tickmarks" class="PostRange" name="joie" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getJoie()) ?>" required>
+					<input type="range" list="tickmarks" class="PostRange bg-success" name="joie" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getJoie()) ?>" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
 				<div class="form-group">
 					<label>Colère</label>
-					<input type="range" list="tickmarks" class="PostRange" name="colere" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getColere()) ?>" required>
+					<input type="range" list="tickmarks" class="PostRange bg-danger" name="colere" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getColere()) ?>" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
 				<div class="form-group">
 					<label>Peur</label>
-					<input type="range" list="tickmarks" class="PostRange" name="peur" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getPeur()) ?>" required>
+					<input type="range" list="tickmarks" class="PostRange bg-warning" name="peur" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getPeur()) ?>" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
 				<div class="form-group">
 					<label>Surprise</label>
-					<input type="range" list="tickmarks" class="PostRange" name="surprise" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getSurprise()) ?>" required>
+					<input type="range" list="tickmarks" class="PostRange bg-info" name="surprise" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getSurprise()) ?>" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
 				<div class="form-group">
 					<label>Dégoût</label>
-					<input type="range" list="tickmarks" class="PostRange" name="degout" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getDegout()) ?>" required>
+					<input type="range" list="tickmarks" class="PostRange bg-dark" name="degout" min=0 max=100 value="<?php echo ($emotion == false ? "0" : $emotion->getDegout()) ?>" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
