@@ -1,8 +1,25 @@
 var searchBar = document.getElementById("gametitle");
+var auto_box = document.getElementById("search-result");
+
+//click sur les propostition de completion
+if(auto_box){
+  auto_box.onclick = fill;
+}
+
+function fill(e){
+  var click = e.target;
+  var monTexte = click.innerText;
+  searchBar.value = monTexte;
+  auto_box.innerHTML = "";
+  auto_box.style.display = "none";
+}
+
+//recherche dans barre de recherche
 if(searchBar){
   searchBar.addEventListener("keyup", () => gameSearch(searchBar.value));
 }
 
+//click sur un bouton de upvote
 var button = document.getElementsByName("btn");
 button.forEach((element) => element.onclick = upvote);
 
@@ -13,6 +30,8 @@ function upvote() {
     var answer = JSON.parse(httpRequest.responseText);
     if(answer == false){
       alert("ERROR");
+    }else{
+      alert("VOTE");
     }
   });
   httpRequest.send(null);
@@ -27,6 +46,7 @@ function gameSearch(title) {
     }else{
       var auto_box = document.getElementById("search-result");
       auto_box.innerHTML="";
+      auto_box.style.display = "none";
     } 
   });
   httpRequest.send(null);
@@ -38,11 +58,11 @@ function gameResponse(httpRequest){
 }
 
 function showgame(gameTab){
-  var auto_box = document.getElementById("search-result");
   auto_box.innerHTML="";
   if(gameTab == false){
     auto_box.innerHTML="Aucun jeux";
   }else{
+    auto_box.style.display = "block";
     gameTab.forEach((element) => auto_box.innerHTML=auto_box.innerHTML+"<p>"+element.titre+"</p>");
   }
 }
