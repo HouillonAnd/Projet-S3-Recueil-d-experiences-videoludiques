@@ -29,7 +29,7 @@ footer{
   appearance: none;
   width: 25px; /* Set a specific slider handle width */
   height: 25px; /* Slider handle height */
-  background: #8A2BE2; /* Color of the button that slides*/
+  background: #121DFF; /* Color of the button that slides*/
   cursor: pointer; /* Cursor on hover */
   border-radius: 50%;
 }
