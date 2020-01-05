@@ -32,37 +32,37 @@
 
 			<div>Tristesse<br>
 			<div class=\"progress\">
-				<div class=\"progress-bar\" role=\"progressbar\" style=\"width:".htmlspecialchars($tristesse)."%;\" aria-valuenow=\"".htmlspecialchars($tristesse)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($tristesse)."</div>
+				<div class=\"progress-bar bg-secondary\" role=\"progressbar\" style=\"width:".htmlspecialchars($tristesse)."%;\" aria-valuenow=\"".htmlspecialchars($tristesse)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($tristesse)."</div>
 			</div>
 			</div>
 
 			<div>Joie<br>
 			<div class=\"progress\">
-				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($joie)."%;\" aria-valuenow=\"".htmlspecialchars($joie)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($joie)."</div>
+				<div class=\"progress-bar bg-success\" role=\"progressbar\" style=\"width: ".htmlspecialchars($joie)."%;\" aria-valuenow=\"".htmlspecialchars($joie)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($joie)."</div>
 			</div>
 			</div>
 
 			<div>Colère<br>
 			<div class=\"progress\">
-				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($colere)."%;\" aria-valuenow=\"".htmlspecialchars($colere)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($colere)."</div>
+				<div class=\"progress-bar bg-danger\" role=\"progressbar\" style=\"width: ".htmlspecialchars($colere)."%;\" aria-valuenow=\"".htmlspecialchars($colere)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($colere)."</div>
 			</div>
 			</div>
 
 			<div>Peur<br>
 			<div class=\"progress\">
-				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($peur)."%;\" aria-valuenow=\"".htmlspecialchars($peur)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($peur)."</div>
+				<div class=\"progress-bar bg-warning\" role=\"progressbar\" style=\"width: ".htmlspecialchars($peur)."%;\" aria-valuenow=\"".htmlspecialchars($peur)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($peur)."</div>
 			</div>
 			</div>
 
 			<div>Surprise<br>
 			<div class=\"progress\">
-				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($surprise)."%;\" aria-valuenow=\"".htmlspecialchars($surprise)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($surprise)."</div>
+				<div class=\"progress-bar bg-info\" role=\"progressbar\" style=\"width: ".htmlspecialchars($surprise)."%;\" aria-valuenow=\"".htmlspecialchars($surprise)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($surprise)."</div>
 			</div>
 			</div>
 
 			<div>Dégoût<br>
 			<div class=\"progress\">
-				<div class=\"progress-bar\" role=\"progressbar\" style=\"width: ".htmlspecialchars($degout)."%;\" aria-valuenow=\"".htmlspecialchars($degout)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($degout)."</div>
+				<div class=\"progress-bar bg-dark\" role=\"progressbar\" style=\"width: ".htmlspecialchars($degout)."%;\" aria-valuenow=\"".htmlspecialchars($degout)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($degout)."</div>
 			</div>
 			</div>
 			");
