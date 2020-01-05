@@ -2,6 +2,14 @@ footer{
     margin-top: 5%;
 }
 
+#search-result{
+  display: none;
+}
+
+#search-result>p:hover{
+  cursor: pointer;
+}
+
 .PostRange {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
