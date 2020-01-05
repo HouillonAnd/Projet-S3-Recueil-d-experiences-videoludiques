@@ -25,7 +25,7 @@
 					<label for="gametitle">Jeu</label>
 					<input type="text" name="jeu_titre" class="form-control" id="gametitle" autocomplete="off" value="<?php echo ($jeu == false ? " " : $jeu->getTitre()) ?>" aria-describedby="emailHelp" $option>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
-					<div id="search-result">
+					<div class="card position-absolute px-2" id="search-result">
 					</div>
 				</div>
 
