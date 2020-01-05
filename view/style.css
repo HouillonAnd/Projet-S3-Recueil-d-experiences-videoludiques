@@ -1,6 +1,9 @@
 footer{
     margin-top: 5%;
 }
+header{
+  background-color: #935DCD ;
+}
 
 #search-result{
   display: none;
