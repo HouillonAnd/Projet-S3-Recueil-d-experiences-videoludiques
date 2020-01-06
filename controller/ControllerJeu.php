@@ -6,7 +6,7 @@ class ControllerJeu {
   
     public static function readAll() {
 
-        $controller='Jeu';
+        $controller='jeu';
         $view='list';
         $pagetitle='Liste des Jeux';
 
