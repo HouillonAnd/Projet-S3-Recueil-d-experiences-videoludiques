@@ -114,5 +114,26 @@ class ControllerEmotions {
           require_once File::build_path(array('view', 'view.php'));
         }
     }
+    
+    public static function MoyenneEmotionPourJeu(){
+    	$idJeu = $_GET['id'];
+    	$controller = 'user';
+
+    	$tab_e = ModelEmotions::getMoyenneEmotionFromJeu($idJeu);
+
+      $view='moyenne';
+          $pagetitle='Moyenne de l\'emotion';
+
+          require_once File::build_path(array('view', 'view.php'));
+    	/*if ($tab_e->getMoyenneEmotionFromJeu($_GET) == false) {
+          $view='error';
+          $pagetitle='Erreur d\'Id';
+
+          require_once File::build_path(array('view', 'view.php'));
+
+        } else {
+          
+        }*/
+    }
 }
 ?>
