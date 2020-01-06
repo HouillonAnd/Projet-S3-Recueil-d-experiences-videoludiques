@@ -177,6 +177,26 @@
         return false;
       }
     }
+		public static function getMoyenneEmotionFromJeu($idJeu){
+
+      try{
+        $sql ="SELECT AVG(tristesse),AVG(joie),AVG(colere),AVG(peur),AVG(surprise),AVG(degout) From `_S3_Emotions` E JOIN `_S3_Post` P on E.id=P.emotion_id JOIN `_S3_Jeu` J on P.jeu_id = J.id Where J.id = :id";
+      
+            $req_prep = Model::$pdo->prepare($sql);
+            $values = array( "id" => $idJeu );
+            $req_prep->execute($values);
+            $tab = $req_prep->fetchAll();
+            return $tab;
+      
+            
+          }
+          catch (PDOException $e) {
+        //return false;
+      }
+
+
+
+    }
 	}
 	
 ?>
