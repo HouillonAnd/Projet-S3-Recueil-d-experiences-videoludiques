@@ -58,7 +58,10 @@
             }  
             if(Session::is_admin()){
               echo "<li class=\"nav-item\">
-                      <a class=\"nav-link\" href=\"index.php?controller=user&action=readAll\" tabindex=\"-1\" aria-disabled=\"true\">Utilisateurs</a>
+                      <a class=\"nav-link\" href=\"index.php?controller=user&action=readAll\"  aria-disabled=\"true\">Utilisateurs</a>
+                    </li>";
+              echo "<li class=\"nav-item\">
+                      <a class=\"nav-link\" href=\"index.php?controller=jeu&action=readAll\" tabindex=\"-1\" aria-disabled=\"true\">Gestion des jeux</a>
                     </li>";
             }
             ?>
