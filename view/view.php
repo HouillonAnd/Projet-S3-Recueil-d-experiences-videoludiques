@@ -82,7 +82,11 @@
 <main>
   <div class="container">
     <?php
-    require File::build_path(array("view", $controller, "$view.php"));
+    echo ("<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">");
+    echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllFresh\">Fresh</a>  </label>");
+    echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllHot\">Hot</a>  </label>");
+   echo "</div>";
+      require File::build_path(array("view", $controller, "$view.php"));
     ?>
   </div>
 </main>
@@ -95,8 +99,8 @@
       Footer
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">Déjà la fin?!</h5>
+      <p class="card-text">Merci d'avoir visité REV. n'hesitez pas vous aussi a laisser un post sur votre jeux vidéo favori .</p>
       <a href="#" class="btn btn-primary">Lien pour un discord? </a>
     </div>
     <div class="card-footer text-muted">
@@ -115,31 +119,7 @@
     <!-- <script src="<?php echo File::build_path(array('view','autocomplet.js'))?>"></script> -->
     <script src="view/autocomplet.js"></script>
 
-    <!--
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © <?php echo date("Y"); ?> REV
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </div>
-  </footer>
-  -->
+   
 
 
   <!-- bootstrap -->
