@@ -24,6 +24,12 @@ body{
   background-color:whitesmoke;/* #C553C9 */
 }
 
+#error{
+	background-color: rgb(255, 232, 232);
+	border: 3px solid red;
+	color: red;
+}
+
 .PostRange {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
