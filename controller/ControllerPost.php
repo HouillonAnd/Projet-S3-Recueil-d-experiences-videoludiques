@@ -12,6 +12,25 @@ class ControllerPost{
 
         require_once File::build_path(array('view', 'view.php'));
     }
+     public static function readAllFresh(){
+        $controller = 'post';
+        $view = 'list';
+        $pagetitle='Liste des postes';
+
+        $tab_post = ModelPost::getAlPost(1);
+
+        require_once File::build_path(array('view', 'view.php'));
+    }
+
+    public static function readAllHot(){
+        $controller = 'post';
+        $view = 'list';
+        $pagetitle='Liste des postes';
+
+        $tab_post = ModelPost::getAlPost(2);
+
+        require_once File::build_path(array('view', 'view.php'));
+    }
 
     public static function read() {
     	$id = $_GET['id'];
