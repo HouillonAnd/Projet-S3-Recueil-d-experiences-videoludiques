@@ -17,6 +17,7 @@ class ControllerUser
       $tab_v = $tab_v = ModelUser::getAllUser();     //appel au modèle pour gerer la BD
       require_once File::build_path(array('view', 'view.php'));
     }else{
+      $message = "Vous n'avez pas accès à cette page";
       $view = 'error';
       $pagetitle = 'erreur d\'accès';
       require_once File::build_path(array('view', 'view.php'));
@@ -29,9 +30,10 @@ class ControllerUser
     $controller = 'user';
     if (isset($_SESSION)) {
       $login = $_SESSION['login'];
-      $v = ModelUser::getUserByLogin($login);     //appel au modèle pour gerer la BD
+      $v = ModelUser::getUserByLogin($login);  
       $tab_p = ModelPost::getAllPostByAuteur($login);
       if ($v == false) {
+        $message = "Cette Utilisateur n'existe pas";
         $view = 'error';
         $pagetitle = 'Erreur d\'id';
 
@@ -88,6 +90,7 @@ class ControllerUser
 
   public static function error()
   {
+    $message = "Vous n'avez pas accès à cette page";
     $controller = 'user';
     $view = 'error';
     $pagetitle = 'Page d\'erreur';
@@ -103,7 +106,7 @@ class ControllerUser
 
     if(Session::is_user($login) || Session::is_admin()){
       if ($v == false) {
-        echo $login;
+        $message = "Cette utilisateur n'existe pas";
         $view = 'error';
         $pagetitle = 'Erreur d\'id';
         require_once File::build_path(array('view', 'view.php'));
@@ -127,8 +130,7 @@ class ControllerUser
     $v = ModelUser::getUserByLogin($login);
 
     $controller = 'user';
-    $view = 'generalUpdate';
-    $pagetitle = 'Mise à jour des User';
+    
 
     $login = $v->getLogin();
     $email = $v->getEmail();
@@ -136,9 +138,14 @@ class ControllerUser
     $admin = $v->getAdmin();
 
     if(Session::is_user($login) || Session::is_admin()){
+      $view = 'generalUpdate';
+      $pagetitle = 'Mise à jour des User';
       require_once File::build_path(array('view', 'view.php'));
     }else{
-      self::connect();
+      $message = "Vous n'avez pas accès à cette page";
+      $view = 'error';
+      $pagetitle = 'Erreur';
+      require_once File::build_path(array('view', 'view.php'));
     }
   }
     
@@ -152,8 +159,9 @@ class ControllerUser
 
     if (Session::is_user($login) || Session::is_admin()) {
       if ($v->update($_GET) == false) {
+        $message = "Erreur au cours de la mise à jour";
         $view = 'error';
-        $pagetitle = 'Erreur de Login';
+        $pagetitle = 'Erreur de mise à jour';
 
         require_once File::build_path(array('view', 'view.php'));
       } else {
@@ -164,6 +172,12 @@ class ControllerUser
 
         require_once File::build_path(array('view', 'view.php'));
       }
+    }else{
+      $message = "Vous avez pas accès à cette page";
+      $view = 'error';
+      $pagetitle = 'Erreur d\'accès';
+
+      require_once File::build_path(array('view', 'view.php'));
     }
   }
 
@@ -177,7 +191,10 @@ class ControllerUser
     if(Session::is_user($login)){
       require_once File::build_path(array('view', 'view.php'));
     }else{
-      self::connect();
+      $message = "Vous avez pas accès à cette page";
+      $view = 'error';
+      $pagetitle = 'pas accès';
+      require_once File::build_path(array('view', 'view.php'));
     }
     
   }
@@ -200,6 +217,11 @@ class ControllerUser
         ControllerUser::updatePassword();
       }
       ControllerUser::updatePassword();
+    }else{
+      $message = "Vous avez pas accès à cette page";
+      $view = 'error';
+      $pagetitle = 'pas accès';
+      require_once File::build_path(array('view', 'view.php'));
     }
   }
 
@@ -257,6 +279,7 @@ class ControllerUser
         require_once File::build_path(array('view', 'view.php'));
       }
     }else{
+      $message = "Vous avez pas accès à cette fonction";
       $controller = 'user';
       $view = 'error';
       $pagetitle = 'Erreur d\'accès';
