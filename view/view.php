@@ -21,7 +21,9 @@
 <header>
   <div class="shadow p-3 mb-5 rounded">
     <nav class="navbar navbar-expand-lg navbar-light ">
-    <a class="navbar-brand" href="index.php?controller=post&action=readAll">REV</a>
+      <div id="logo">
+      <a class="navbar-brand" href="index.php?controller=post&action=readAll"><img src="image/REV_finale.png" class="img-fluid" alt="Responsive image"></a>
+      </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
