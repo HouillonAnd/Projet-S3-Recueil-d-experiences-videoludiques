@@ -15,6 +15,17 @@ class ControllerJeu {
         require_once File::build_path(array('view', 'view.php'));
     }
 
+    public static function readValide()
+    {
+        $controller='jeu';
+        $view='list';
+        $pagetitle='Liste des Jeux';
+
+        $tab_jeu = ModelJeu::getJeuSansNonce();     //appel au modèle pour gerer la BD
+        
+        require_once File::build_path(array('view', 'view.php'));
+    }
+
     public static function read() {
     	$id = $_GET['id'];
       $v = ModelJeu::getJeuById($id);     //appel au modèle pour gerer la BD
@@ -82,6 +93,22 @@ class ControllerJeu {
           $pagetitle='Délétion de jeu';
 
           require_once File::build_path(array('view', 'view.php'));
+      }
+    }
+    public static function deleteNonce()
+    {
+        $id = $_GET['id'];
+        $v = ModelJeu::deleteById($id);
+        $controller='jeu';
+
+        if ($v == false) {
+          $view='error';
+          $pagetitle='Erreur d\'Id';
+
+          require_once File::build_path(array('view', 'view.php'));
+
+        } else {
+          self::readValide();
       }
     }
 

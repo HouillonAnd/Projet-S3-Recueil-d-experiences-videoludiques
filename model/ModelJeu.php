@@ -6,6 +6,7 @@
 		private $id;
 		private $titre;
 		private $nbPost;
+    private $nonce;
 
 	    //getter      
 	    public function getId() {
@@ -17,6 +18,9 @@
 	    public function getNbPost() {
 	        return $this->nbPost;  
 	    }
+      public function getNonce() {
+          return $this->nonce;  
+      }
 	       
 	    //setter 
 	    public function setId($id2) {
@@ -26,9 +30,11 @@
 	        $this->titre =$titre2;
 	    }
 	    public function setNbPost($nbPost2) {
-	       	$this->nbPost = $nbPost2;
-	       
+	       	$this->nbPost = $nbPost2;  
 	    }
+      public function setNonce($nonce) {
+          $this->nonce = $nonce;  
+      }
 
 	    public function __construct($data = NULL) {
 		    if (!is_null($data) && !empty($data)) {
@@ -98,10 +104,50 @@
       return $tab_jeu[0];
     }
 
-    public static function deleteById($id)
+    public static function getJeuWithNonce(){
+
+      $satement = "SELECT * FROM _S3_Jeu WHERE nonce=1";
+      $rep = Model::$pdo -> query($satement);
+      
+      $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelJeu');
+      $tab_jeu_nonce = $rep->fetchAll();
+
+      return $tab_jeu_nonce;
+    }
+
+    public static function getJeuSansNonce(){
+
+      $satement = "SELECT * FROM _S3_Jeu WHERE nonce=\"NULL\"";
+      $rep = Model::$pdo -> query($satement);
+      
+      $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelJeu');
+      $tab_jeu = $rep->fetchAll();
+
+      return $tab_jeu;
+    }
+    public static function deleteNonce($id)
     {
       try {
         $sql = "DELETE from _S3_Jeu WHERE id=:nom_tag";
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $values = array(
+            "nom_tag" => $id,
+            //nomdutag => valeur, ...
+        );
+        // On donne les valeurs et on exécute la requête   
+        $req_prep->execute($values);
+        return true;
+      } catch (PDOException $e) {
+        return false;
+      }
+    }
+
+    public static function deleteById($id)
+    {
+      try {
+        $sql = "UPDATE _S3_Jeu SET nonce=\"NULL\" WHERE id=:nom_tag";
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -120,7 +166,7 @@
 
     public function save() {
     
-      $statement ="INSERT INTO _S3_Jeu(id, titre,nbPost) VALUES(:id, :titre, :nbPost)";
+      $statement ="INSERT INTO _S3_Jeu(id, titre,nbPost,nonce) VALUES(:id, :titre, :nbPost, 1)";
       $req_prep = Model::$pdo->prepare($statement);
 
       $values = array(
