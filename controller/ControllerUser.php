@@ -77,7 +77,7 @@ class ControllerUser
       if ($_GET["password"] == $_GET["password2"]) {
         $user = new ModelUser($_GET);
         $user->save();
-        ControllerPost::readAll(); //on redirifera plus tard l'utlisateur sur sa page perso
+        self::connect(); //on redirifera plus tard l'utlisateur sur sa page perso
       } else {
         self::create();
       }
@@ -101,16 +101,23 @@ class ControllerUser
     $v = ModelUser::deleteByLogin($login);
     $controller = 'user';
 
-    if ($v == false) {
-      $view = 'error';
-      $pagetitle = 'Erreur d\'id';
-
-      require_once File::build_path(array('view', 'view.php'));
-    } else {
-      $view = 'deleted';
-      $pagetitle = 'Délétion de User';
-
-      require_once File::build_path(array('view', 'view.php'));
+    if(Session::is_user($login) || Session::is_admin()){
+      if ($v == false) {
+        echo $login;
+        $view = 'error';
+        $pagetitle = 'Erreur d\'id';
+        require_once File::build_path(array('view', 'view.php'));
+      } else {
+        if(Session::is_user($login)){
+          self::deconnect();
+          $view = 'connect';
+          $pagetitle = 'Délétion de User';
+        }else{
+          $view = 'connect';
+          $pagetitle = 'Supression compte';
+        }
+        require_once File::build_path(array('view', 'view.php'));
+      }
     }
   }
 

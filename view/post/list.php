@@ -25,12 +25,12 @@
 			$degout=$emotion->getDegout();
 
 
-			echo ("<div class=\"shadow-sm p-3 mb-5 rounded\" id=\"post\">");
+			echo ("<div class=\"shadow-sm p-0 mb-5 rounded\" id=\"post\">");
 			echo ("<div class=\"card\"> <div class=\"card-header\" id=\"titre\"><h3>".ucfirst(htmlspecialchars($titre))."</h3></div>");
 			echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
 				<p class=\"container\">".htmlspecialchars($contenu)."</p> 
 
-				<div>Tristesse<br>
+				<div>Tristesse<i data-feather=\"circle\"></i><br>
 				<div class=\"progress\">
 					<div class=\"progress-bar bg-secondary\" role=\"progressbar\" style=\"width:".htmlspecialchars($tristesse)."%;\" aria-valuenow=\"".htmlspecialchars($tristesse)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($tristesse)."</div>
 				</div>

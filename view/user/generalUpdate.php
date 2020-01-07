@@ -10,7 +10,6 @@
                     <label for="InputEmail">Email address</label>
                     <input type="email" name="email" class="form-control" id="InputEmail" value="<?php echo $email ?>" aria-describedby="emailHelp" required>
                 </div>
-                <a href="index.php?controller=user&action=updatePassword&login=<?php echo $login ?>">changer de mot de passe?</a>
                 <button type="submit" class="btn btn-primary">Change</button>
             </form>
         </div>

@@ -17,11 +17,11 @@ body{
 }
 
 #post{
-  background-color: #3720BB;
+  background-color:white;/* #3720BB */
 }
 
 #titre{
-  background-color: #C553C9;
+  background-color:whitesmoke;/* #C553C9 */
 }
 
 .PostRange {
