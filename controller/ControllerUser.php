@@ -73,7 +73,7 @@ class ControllerUser
 
   public static function created()
   {
-    if (filter_var($_GET['mail'], FILTER_VALIDATE_EMAIL)){
+    if (filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
       if ($_GET["password"] == $_GET["password2"]) {
         $user = new ModelUser($_GET);
         $user->save();

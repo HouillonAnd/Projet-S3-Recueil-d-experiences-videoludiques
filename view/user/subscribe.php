@@ -1,53 +1,33 @@
-<form method="get" action="./index.php"> 
-<input type="hidden" name="action" value="created">
-<input type="hidden" name="controller" value="user">
-					<table>
-						<tr>
-							<td align="right">
-								<label for="login">Login :  </label>
-							</td>
-							<td align="right">
-								<input type="text" placeholder="Votre login" id="login" name="login" value="<?php echo $login?>" required>
-							</td>
-						</tr>
-						<tr>
-							<td align="right">
-								<label for="email">Email :  </label>
-							</td>
-							<td align="right">
-								<input type="email" placeholder="Votre email" id="email" name="email" value="<?php echo $email?>" required>
-							</td>
-						</tr>
-						<tr>
-							<td align="right">
-								<label for="email2">Confirmation du Email :  </label>
-							</td>
-							<td align="right">
-								<input type="email" placeholder="Confirmez votre email" id="email2" name="email2" value="<?php echo $email2?>" required>
-							</td>
-						</tr>
-						<tr>
-							<td align="right">
-								<label for="password">Mot de Passe :  </label>
-							</td>
-							<td align="right">
-								<input type="password" placeholder="Votre Mot de Passe" id="password" name="password"required>
-							</td>
-						</tr>
-						<tr>
-		                  	<td align="right">
-		                    	<label for="password2">Confirmation du mot de passe :</label>
-			                </td>
-			                <td>
-		                     <input type="password" placeholder="Confirmez votre Mot de Passe" id="password2" name="password2" required>
-		                    </td>
-		                </tr>
-		                <tr>
-                  			<td></td>
-                  			<td align="center">
-                     		<br>
-                     		<input type="submit" name="forminscription" value="Je m'inscris" />
-                 			</td>
-              			</tr>
-					</table>
-				</form>
+<div class="row justify-content-center">
+
+	<div class="card" style="width: 18rem;">
+		<div class="card-body">
+			<form method="get" action="./index.php">
+				<input type="hidden" name="action" value="created">
+				<input type="hidden" name="controller" value="user">
+				<div class="form-group">
+					<label for="InputLogin">Login</label>
+					<input type="text" name="login" class="form-control" id="InputLogin" aria-describedby="emailHelp" value="<?php echo $login ?>" required>
+				</div>
+				<div class="form-group">
+					<label for="InputEmail">Email</label>
+					<input type="email" name="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" value="<?php echo $email ?>" required>
+				</div>
+				<div class="form-group">
+					<label for="InputEmail2">Email confirmation</label>
+					<input type="email" name="email2" class="form-control" id="InputEmail2" aria-describedby="emailHelp" value="<?php echo $email2 ?>" required>
+				</div>
+				<div class="form-group">
+					<label for="InputPassword">Mot de passe</label>
+					<input type="password" name="password" class="form-control" id="InputPassword" required>
+				</div>
+				<div class="form-group">
+					<label for="InputEmail2">Confirmer mot de passe</label>
+					<input type="password" name="password2" class="form-control" id="InputEmail2" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+			</form>
+		</div>
+	</div>
+
+</div>
