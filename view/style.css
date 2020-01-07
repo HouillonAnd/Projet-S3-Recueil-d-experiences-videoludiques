@@ -30,6 +30,10 @@ body{
 	color: red;
 }
 
+#logo{
+  width: 40px;
+}
+
 .PostRange {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;
