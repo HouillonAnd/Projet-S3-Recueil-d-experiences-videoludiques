@@ -86,6 +86,23 @@
       return $tab_post;
 
     }
+public static function getAlPost($pref){
+      if($pref==1){
+        $satement = "SELECT * FROM _S3_Post ORDER BY date_publication DESC ";
+      }
+      else if($pref==2){
+        $satement = "SELECT * FROM _S3_Post ORDER BY nbUpvote DESC";
+      }
+
+      
+      $rep = Model::$pdo -> query($satement);
+      
+      $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelPost');
+      $tab_post = $rep->fetchAll();
+
+      return $tab_post;
+
+    }
 
     public static function getPostById($id) {
       $sql = "SELECT * from _S3_Post WHERE id=:nom_tag";
