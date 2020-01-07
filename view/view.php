@@ -82,10 +82,6 @@
 <main>
   <div class="container">
     <?php
-    echo ("<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">");
-    echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllFresh\">Fresh</a>  </label>");
-    echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllHot\">Hot</a>  </label>");
-   echo "</div> <br><br>";
       require File::build_path(array("view", $controller, "$view.php"));
     ?>
   </div>
