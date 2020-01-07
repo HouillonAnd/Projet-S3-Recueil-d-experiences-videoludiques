@@ -101,7 +101,7 @@
     <div class="card-body">
       <h5 class="card-title">Déjà la fin?!</h5>
       <p class="card-text">Merci d'avoir visité REV. n'hesitez pas vous aussi a laisser un post sur votre jeux vidéo favori .</p>
-      <a href="#" class="btn btn-primary">Lien pour un discord? </a>
+      <a href="https://extragames.fr/" class="btn btn-primary">Site principal </a>
     </div>
     <div class="card-footer text-muted">
       © <?php echo date("Y"); ?> REV
