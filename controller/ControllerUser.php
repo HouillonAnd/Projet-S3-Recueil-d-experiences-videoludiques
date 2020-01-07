@@ -157,12 +157,6 @@ class ControllerUser
 
         require_once File::build_path(array('view', 'view.php'));
       } else {
-        //Si l'utlisateur modifie son compte
-        if(Session::is_user($login)){
-          if(Session::is_admin()){
-            $_SESSION['admin'] = $_GET['admin'];
-          }
-        }
         
         $v = ModelUser::getUserByLogin($login);
         $view = 'detail';
