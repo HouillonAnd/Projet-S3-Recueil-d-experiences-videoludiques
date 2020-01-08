@@ -17,13 +17,13 @@
 
 				<div class="form-group">
 					<label for="InputTitle">Titre</label>
-					<input type="text" name="titre" class="form-control" id="InputTitle" value="<?php echo $titre ?>" aria-describedby="emailHelp" $option>
+					<input type="text" name="titre" class="form-control" id="InputTitle" value="<?php echo $titre ?>" aria-describedby="emailHelp" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 				</div>
 
 				<div class="form-group">
 					<label for="gametitle">Jeu</label>
-					<input type="text" name="jeu_titre" class="form-control" id="gametitle" autocomplete="off" value="<?php echo ($jeu == false ? " " : $jeu->getTitre()) ?>" aria-describedby="emailHelp" $option>
+					<input type="text" name="jeu_titre" class="form-control" id="gametitle" autocomplete="off" value="<?php echo ($jeu == false ? " " : $jeu->getTitre()) ?>" aria-describedby="emailHelp" required>
 					<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 					<div class="card position-absolute px-2" id="search-result">
 					</div>
