@@ -195,5 +195,11 @@ class ControllerPost{
         }
       }
     }
+
+    public static function getnbvoteByPost(){
+      $id = $_GET["id"];
+      $post = ModelPost::getPostById($id);
+      echo json_encode($post->getnbUpvote());
+    }
 }
 ?>

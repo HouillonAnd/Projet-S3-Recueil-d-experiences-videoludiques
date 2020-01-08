@@ -6,6 +6,7 @@ if(auto_box){
   auto_box.onclick = fill;
 }
 
+//remplissage de barre avec la valeur clicker
 function fill(e){
   var click = e.target;
   var monTexte = click.innerText;
@@ -24,6 +25,7 @@ var button = document.getElementsByName("btn");
 button.forEach((element) => element.onclick = upvote);
 
 function upvote() {
+  var id = this.id;
   var httpRequest = new XMLHttpRequest();
   httpRequest.open("GET", "index.php?controller=post&action=vote&id="+this.id, true);
   httpRequest.addEventListener("load", function() {
@@ -31,8 +33,20 @@ function upvote() {
     if(answer == false){
       alert("ERROR");
     }else{
-      alert("VOTE");
+      putvote(id);
     }
+  });
+  httpRequest.send(null);
+}
+
+//afficje les votes en directe
+function putvote(id){
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.open("GET", "index.php?controller=post&action=getnbvoteByPost&id="+id, true);
+  httpRequest.addEventListener("load", function() {
+    var answer = JSON.parse(httpRequest.responseText);
+    var upvote = document.getElementById("upvote"+id);
+    upvote.innerHTML = "Upvote : "+answer;
   });
   httpRequest.send(null);
 }

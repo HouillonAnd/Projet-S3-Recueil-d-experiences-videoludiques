@@ -19,9 +19,6 @@ echo
 		<tr>
 			<td><a href=index.php?controller=user&action=updatePassword&login=" . rawurlencode($v->getLogin()) . '>' . 'Mot de passe' . '</a>' . "</td>
 		</tr>
-		<tr>
-			<td><a href=index.php?controller=user&action=delete&login=" . rawurlencode($v->getLogin()) . '>' . 'Suprimer' . '</a>' . "</td>
-		</tr>
 	</tbody>
 </table>
 

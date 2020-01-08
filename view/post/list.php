@@ -33,7 +33,7 @@
 			echo("<div class=\"card-body\"> <h5 class=\"card-title\">".htmlspecialchars($titre_jeu)."</h5> 
 				<p class=\"container\">".htmlspecialchars($contenu)."</p> 
 
-				<div>Tristesse<i data-feather=\"circle\"></i><br>
+				<div>Tristesse<br>
 				<div class=\"progress\">
 					<div class=\"progress-bar bg-secondary\" role=\"progressbar\" style=\"width:".htmlspecialchars($tristesse)."%;\" aria-valuenow=\"".htmlspecialchars($tristesse)."\" aria-valuemin=\"0\" aria-valuemax=\"100\">".htmlspecialchars($tristesse)."</div>
 				</div>
@@ -73,7 +73,7 @@
 			
 
 			echo("<div class=\"card-footer\">");
-			echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\">Upvote : ".htmlspecialchars($nbUpvote)." <button type=\"button\" name=\"btn\" class=\"btn btn-primary btn-sm\" data-toggle=\"button\" aria-pressed=\"false\" id=\"$id\">Upvote </button></div></div>");
+			echo("<div class=\"row\"><div class=\"col-sm-6\"> <div class=\"card\"><span id=\"upvote$id\">Upvote : ".htmlspecialchars($nbUpvote)."</span><button type=\"button\" name=\"btn\" class=\"btn btn-primary btn-sm\" data-toggle=\"button\" aria-pressed=\"false\" id=\"$id\">Upvote</button></div></div>");
 
 			echo("<div class=\"col-sm-6\"> <div class=\"card\">Auteur : ".htmlspecialchars($auteur_id)."</div></div></div>");
 			if(isset($_SESSION["login"]) && $_SESSION["login"] == $auteur_id){
