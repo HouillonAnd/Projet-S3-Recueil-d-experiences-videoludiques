@@ -181,18 +181,22 @@ class ControllerPost{
 
     public static function vote(){
       $id = $_GET["id"];
-      $login = $_SESSION['login'];
-      $post = ModelPost::getPostById($id);
-      $vote = new ModelUpvote($login, $id);
-      if($vote->checkvote() == false){
-        $vote->save();
-        echo  json_encode($post->vote(+1));
-      }else{
-        if($vote->delete() == true){
-          echo  json_encode($post->vote(-1));
+      if(isset($_SESSION['login'])){
+        $login = $_SESSION['login'];
+        $post = ModelPost::getPostById($id);
+        $vote = new ModelUpvote($login, $id);
+        if($vote->checkvote() == false){
+          $vote->save();
+          echo  json_encode($post->vote(+1));
         }else{
-          echo json_encode("falsedelet");
+          if($vote->delete() == true){
+            echo  json_encode($post->vote(-1));
+          }else{
+            echo json_encode("false");
+          }
         }
+      }else{
+        echo json_encode("false");
       }
     }
 
