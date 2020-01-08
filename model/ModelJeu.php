@@ -198,12 +198,13 @@
     }
 
     public static function search($title){
-      $sql = "SELECT titre from _S3_Jeu WHERE titre LIKE :nom_tag LIMIT 10";
+      $sql = "SELECT titre from _S3_Jeu WHERE titre LIKE :nom_tag AND nonce=:null LIMIT 4";
       // Préparation de la requête
       $req_prep = Model::$pdo->prepare($sql);
 
       $values = array(
           "nom_tag" => "$title%",
+          "null"=>"NULL",
           //nomdutag => valeur, ...
       );
       // On donne les valeurs et on exécute la requête   
