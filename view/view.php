@@ -19,8 +19,7 @@
 <body>
 
 <header>
-  <div class="shadow p-3 mb-5 rounded">
-    <nav class="navbar navbar-expand-lg navbar-light ">
+    <nav class="navbar navbar-expand-lg navbar-light mb-5">
       <a class="navbar-brand" href="index.php?controller=post&action=readAll"><img src="image/REV_finale.png" id="logo" class="img-fluid" alt="Responsive image"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -75,7 +74,6 @@
         </form>
   </nav>
 
-</div>
 
 </header>
  
@@ -90,18 +88,18 @@
 
 
 <footer class="page-footer">
-  <div class="card text-center">
-    <div class="card-header">
-      Footer
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Déjà la fin?!</h5>
-      <p class="card-text">Merci d'avoir visité REV. n'hesitez pas vous aussi a laisser un post sur votre jeux vidéo favori .</p>
-      <a href="https://extragames.fr/" class="btn btn-primary">Site principal </a>
-    </div>
-    <div class="card-footer text-muted">
-      © <?php echo date("Y"); ?> REV
-    </div>
+    <div class="card text-center">
+      <div class="card-header">
+        Footer
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Déjà la fin?!</h5>
+        <p class="card-text">Merci d'avoir visité REV. n'hesitez pas vous aussi a laisser un post sur votre jeux vidéo favori .</p>
+        <a href="https://extragames.fr/" class="btn btn-primary">Site principal </a>
+      </div>
+      <div class="card-footer text-muted">
+        © <?php echo date("Y"); ?> REV
+      </div>
   </div>
 
 
