@@ -98,7 +98,7 @@ class ControllerJeu {
     public static function deleteNonce()
     {
         $id = $_GET['id'];
-        $v = ModelJeu::deleteById($id);
+        $v = ModelJeu::deleteNonce($id);
         $controller='jeu';
 
         if ($v == false) {

@@ -128,7 +128,8 @@
     public static function deleteNonce($id)
     {
       try {
-        $sql = "DELETE from _S3_Jeu WHERE id=:nom_tag";
+        $sql = "UPDATE _S3_Jeu SET nonce=\"NULL\" WHERE id=:nom_tag";
+
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -147,7 +148,7 @@
     public static function deleteById($id)
     {
       try {
-        $sql = "UPDATE _S3_Jeu SET nonce=\"NULL\" WHERE id=:nom_tag";
+        $sql ="DELETE from _S3_Jeu WHERE id=:nom_tag"; 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
