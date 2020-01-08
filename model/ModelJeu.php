@@ -167,13 +167,12 @@
 
     public function save() {
     
-      $statement ="INSERT INTO _S3_Jeu(id, titre,nbPost,nonce) VALUES(:id, :titre, :nbPost, 1)";
+      $statement ="INSERT INTO _S3_Jeu(id, titre,nbPost,nonce) VALUES(:id, :titre, 0, 1)";
       $req_prep = Model::$pdo->prepare($statement);
 
       $values = array(
         "id" => $this->id,
         "titre" => $this->titre,
-        "nbPost" => $this->nbPost
       );    
 
       $req_prep->execute($values); 

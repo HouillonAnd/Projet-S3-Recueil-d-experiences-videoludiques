@@ -62,11 +62,8 @@ class ControllerJeu {
 
     	$jeu = new ModelJeu($_GET);
       $jeu->save();
-      self::readAll();
 
       require_once File::build_path(array('view', 'view.php'));
-
-      self::readAll();
     }
 
     public static function error() {
