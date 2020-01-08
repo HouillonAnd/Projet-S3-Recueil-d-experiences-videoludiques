@@ -152,6 +152,7 @@
   <!-- revoir pourquoi le builtpath ne fonctionne pas  -->
   <!-- <script src="<?php echo File::build_path(array('view', 'autocomplet.js')) ?>"></script> -->
   <script src="view/autocomplet.js"></script>
+  <script>feather.replace()</script> 
 </body>
 
 </html>
