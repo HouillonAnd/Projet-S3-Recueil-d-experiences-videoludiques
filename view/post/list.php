@@ -1,10 +1,10 @@
 <?php
 	require_once File::build_path(array('model', 'ModelJeu.php'));
 	require_once File::build_path(array('model', 'ModelEmotions.php'));
-			// echo ("<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">");
-    		// 	echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllFresh\">Fresh</a>  </label>");
-   			// echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllHot\">Hot</a>  </label>");
-   			// echo "</div> <br><br>";
+			echo ("<div class=\"btn-group btn-group-toggle\" id=\"reload\" data-toggle=\"buttons\">");
+    			echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllFresh\">Fresh</a>  </label>");
+   			echo("<label class=\"btn btn-secondary active\"><input type=\"radio\" name=\"options\" id=\"option1\" checked> <a href=\"index.php?controller=post&action=readAllHot\">Hot</a>  </label>");
+   			echo "</div> <br><br>";
     foreach ($tab_post as $p){
 		    $id=$p -> getId();
 			$auteur_id=$p -> getAuteur_id();

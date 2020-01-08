@@ -34,6 +34,10 @@ body{
   width: 40px;
 }
 
+#reload{
+  background-color: #935DCD ;
+}
+
 .PostRange {
   -webkit-appearance: none;  /* Override default CSS styles */
   appearance: none;

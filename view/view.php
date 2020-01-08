@@ -65,7 +65,7 @@
                     </li>";
             }
             ?>
-            <li class="nav-item dropdown">
+            <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Préférence
           </a>
@@ -73,7 +73,7 @@
             <a class="dropdown-item" href="index.php?controller=post&action=readAllHot">Hot</a>
             <a class="dropdown-item" href="index.php?controller=post&action=readAllFresh">Fresh</a>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
 
